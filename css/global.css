@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    display: grid;
+
+    height: 100%;
+    /* grid-gap: 10px; */
+    /* grid-column-gap: 50px; */
+
+    grid-template-columns: 3fr 1fr;
+
+    grid-template-areas: "head head"
+                        "nav nav"
+                        "main lat"
+                        "foot foot";
+}
+
+header {
+    grid-area: head;
+
+    background-color: red;
+
+    height: 10vh;
+}
+
+header h1 {
+    margin-top: 2%;
+    text-align: center;
+}
+
+
+/* formato web */
+@media (min-width: 700px) {
+
+    .contenedor {
+    
+        grid-template-areas: "head head"
+                            "nav nav"
+                            "main lat"
+                            "foot foot";
+    }
+    
+    nav {
+        grid-area: nav;
+
+        background-color: blue;
+
+        
+        height: 5vh;
+    }
+
+    nav ul li {
+        display: inline;
+        list-style: none;
+
+        border: 1px solid black;
+
+        margin-left: -4px;
+
+        padding: 2%;
+        padding-top: 1.1%;
+        padding-bottom: 0.05;
+        /* align-items: center; */
+
+    }
+
+    nav ul li:hover {
+        background-color: aqua;
+    }
+
+    main {
+        grid-area: main;
+    
+        background-color: green;
+        height: 75vh;
+    }
+    
+    lat {
+        grid-area: lat;
+    
+        background-color: purple;
+        
+        height: 75vh;
+    }
+}
+
+
+footer {
+    grid-area: foot;
+
+    background-color: yellow;
+    
+    height: 10vh;
+}
+
+/* Menú */
+
+main {
+    grid-area: main;
+
+    background-color: green;
+    height: 80vh;
+}
+
+lat {
+    grid-area: lat;
+
+    background-color: purple;
+    
+    height: 80vh;
+}
+
+
+/* Formato smartphone */
+@media (max-width: 700px) {
+
+    .contenedor {
+    
+        grid-template-areas: "head head"
+                            "nav nav"
+                            "main main"
+                            "lat lat"
+                            "foot foot";
+    }
+
+    nav {
+        height: 100%;
+        position: fixed;
+        left: 0;
+        width: 50%;
+        margin-top: 10vh;
+        transform: translateX(-100%);
+        transition: transform 250ms ease-in-out;
+        background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%);
+    }
+
+    nav ul {
+        margin:0;
+        padding:0;
+        /* border-top: 1px solid rgba(255, 255, 255, 0.10); */
+    }
+
+    nav ul li{
+        list-style: none;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 20px;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    nav ul li span{
+        display: block;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.50);
+    }
+    nav ul li a{
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    input[type="checkbox"]:checked ~ nav {
+        transform: translateX(0);
+    }
+
+    input[type=checkbox] {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        display: none;
+    }
+
+    .sidebarIconToggle {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        height: 100%;
+        width: 100%;
+        top: 22px;
+        left: 15px;
+        height: 22px;
+        width: 22px;
+    }
+
+    .spinner {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+    }
+
+    .horizontal {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        margin-top: 3px;
+    }
+
+    .diagonal.part-1 {
+        position: relative;
+        transition: all 0.3s;
+        box-sizing: border-box;
+        float: left;
+    }
+
+    .diagonal.part-2 {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        margin-top: 3px;
+    }
+
+    input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        opacity: 0;
+    }
+
+    input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        transform: rotate(135deg);
+        margin-top: 8px;
+    }
+
+    input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        transform: rotate(-135deg);
+        margin-top: -9px;
+    }
+}
