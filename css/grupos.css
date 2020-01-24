@@ -1,0 +1,43 @@
+
+
+.contenedor {
+    display: grid;
+
+    height: 100%;
+    /* grid-gap: 10px; */
+    /* grid-column-gap: 50px; */
+
+    grid-template-columns: 3fr 1fr;
+
+    grid-template-areas: "head head"
+                        "nav nav"
+                        "main lat"
+                        "foot foot";
+}
+
+/* formato web */
+@media (min-width: 700px) {
+
+    .contenedor {
+    
+        grid-template-areas: "head head"
+                            "nav nav"
+                            "main lat"
+                            "foot foot";
+    }
+}
+
+
+/* Formato smartphone */
+@media (max-width: 700px) {
+
+    .contenedor {
+    
+        grid-template-areas: "head head"
+                            "nav nav"
+                            "main main"
+                            "lat lat"
+                            "foot foot";
+    }
+
+}
