@@ -1,4 +1,7 @@
-body {
+html, body {
+    width: 100%;
+    max-width: 1920px;
+    max-height: 1080px;
     margin: 0;
     padding: 0;
 }
@@ -6,9 +9,295 @@ body {
 .contenedor {
     display: grid;
 
+    width: 100%;
     height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    grid-template-areas: "head head"
+                        "main main"
+                        "foot foot";
+}
+
+  
+p {
+    font-weight: 500;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+}
+  
+/* header * {
+    margin: 0;
+} */
+
+header {
+    display: grid;
+
+    grid-template-columns: 1fr 4fr 1fr;
+
+    grid-area: head;
+    width: 100%;
+    height: 80px;
+    background-color: #24292E;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+}
+
+.entrar {
+    display: inline-block !important;
+    margin: auto;
+    margin-right: 10px;
+}
+
+.entrar a {
+    border-color: #d1d5da !important;
+    border-radius: 3px !important;
+    
+
+    border: 1px solid #e1e4e8 !important;
+
+    border-color: #E1E4E8;
+
+    display: inline-block !important;
+    text-decoration: none !important;
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+
+    color: #ffffff;
+}
+
+.registrarse {
+    display: inline-block !important;
+    margin: auto;
+    margin-left: 0;
+}
+
+.registrarse a {
+    border-color: #d1d5da !important;
+    border-radius: 3px !important;
+    
+    border: 1px solid #e1e4e8 !important;
+
+    border-color: #E1E4E8;
+
+    display: inline-block !important;
+    text-decoration: none !important;
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+
+    color: #ffffff;
+}
+
+.tituloHeader {
+    display: flex;
+    margin: auto;
+}
+
+.tituloHeader h1 {
+    margin: auto;
+    text-align: center;
+    color: #d1d5da;
+}
+
+.imagenHeader img {
+    width: 56px;
+    height: 56px;
+    display: block;
+    text-align: left;
+    margin: 10px;
+}
+
+nav {
+    text-align: end;
+    margin: 0 auto;
+}
+  
+ul {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+  
+li {
+    padding-left: 2%;
+    padding-right: 2%;
+    text-align: center;
+    color: #ffffff;
+    transition: .4s;
+}
+  
+
+  
+li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+  
+li a:hover {
+    text-decoration: none;
+    color: #C2C9CB;
+}
+
+.activo {
+    border-color: #d1d5da !important;
+    border-radius: 3px !important;
+    
+    border: 1px solid #e1e4e8 !important;
+
+    border-color: #E1E4E8;
+}
+  
+main {
+    display: grid;
+    grid-area: main;
+  
+    grid-template-columns: 4fr 2fr;
+  
+    width: 100%;
+}
+
+main p, main h1, main h2, main h3 {
+    color: #24292E
+}
+  
+#mainContainer {
+    width: 100%;
+    height: 100%;
+  
+    background-color: #FAFBFC;
+}
+
+#rightContainer {
+    width: 100%;
+    height: 100%;
+    border-left: 2px solid #24292E;
+}
+  
+#mainContainer h1 {
+    text-align: center;
+}
+  
+.posts {
+    margin: 0 auto;
+    width: 100%;
+}
+  
+.post {
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  
+    text-align: center;
+  
+    width: 90%;
+  
+    background-color: white ;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid white;
+}
+  
+.titulo, .descripcion, .fechaAutor  {
+    border: 1px solid black;
+}
+  
+.titulo  {
+    border: 1px solid black;
+    border-radius: 20px 20px 0 0;
+}
+  
+  
+.fechaAutor  {
+    display: grid;
+    grid-template-columns: 1fr 10fr 10fr 2fr;
+    border: 1px solid black;
+    border-radius: 0 0 20px 20px;
+    height: 10%;
+}
+  
+.avatar {
+    width: 42px;
+    height: 42px;
+    display: block;
+    margin: 5px;
+    text-align: left;
+    border-radius: 20px 20px 20px 20px;
+    background-color: red;
+    border: 1px solid rgb(107, 102, 102);
+}
+
+.fecha {
+    text-align: right;
+    margin-right: 1%;
+}
+
+.invitar {  
+    background-color: #24292E;
+    border: 2px solid rgb(121, 127, 133);
+
+	border-radius: 6px !important;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+    font-size: 16px;
+    margin: 10px;
+	text-decoration: none;
+}
+
+.invitar:hover {
+    background-color: #E1E4E8;
+    color: #24292E;
+}
+
+.invitar:active {
+	position:relative;
+	top:1px;
+}
+  
+.autor {
+    text-align: left;
+    margin-left: 1%;
+}
+  
+footer {
+    grid-area: foot;
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    z-index: 0;
+    background: #24292E;
+    color: white;
+  
+    text-align: center;
+}
+
+/*html , body {
+    max-width: 1920px;
+    max-height: 1080px;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    display: grid;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
     /* grid-gap: 10px; */
-    /* grid-column-gap: 50px; */
+    /* grid-column-gap: 50px; *//*
 
     grid-template-columns: 3fr 1fr;
 
@@ -23,23 +312,167 @@ header {
 
     background-color: red;
 
+    width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
-header h1 {
+/* header h1 {
     margin-top: 2%;
     text-align: center;
+} *//*
+
+.tituloHeader {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+  
+.imagenHeader img {
+    width: 96px;
+    height: 96px;
+    display: block;
+    text-align: left;
 }
 
+nav {
+    grid-area: nav;
+    width: 100%;
+    height: 20%;
+    background: red;
+  
+    text-align: center;
+    
+}
+  
+ul {
+    list-style: none;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+  
+li {
+    display: inline;
+    padding-left: 2%;
+    padding-right: 2%;
+    text-align: center;
+    background: #5e5d5dc8;
+}
+  
+li:hover {
+    text-align: center;
+    background: rgb(228, 228, 228);
+}
+  
+li a {
+    text-decoration: none;
+    color: white;
+}
+  
+li a:hover {
+    text-decoration: none;
+    color: black;
+}
+  
+.mainContent {
+    position: relative;
+    display: grid;
+    
+  
+    grid-template-columns: 4fr 2fr;
+  
+    width: 100%;
+}
+  
+#mainContainer {
+    grid-area: main;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  
+    background-color: rgba(0, 0, 0, 0.9); ;
+}
+  
+#mainContainer h1 {
+    text-align: center;
+    color: white;
+}
+  
+.posts {
+    margin: 0 auto;
+    width: 100%;
+}
+  
+.post {
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  
+    text-align: center;
+  
+    width: 90%;
+  
+    background-color: white ;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid white;
+}
+  
+.titulo, .descripcion, .fechaAutor  {
+    border: 1px solid black;
+}
+  
+.titulo  {
+    border: 1px solid black;
+    border-radius: 20px 20px 0 0;
+}
+  
+  
+.fechaAutor  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid black;
+    border-radius: 0 0 20px 20px;
+    height: 10%;
+}
+  
+.fecha {
+    text-align: right;
+    margin-right: 1%;
+}
+  
+.autor {
+    text-align: left;
+    margin-left: 1%;
+}
+  
+#rightContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: purple;
+}
+  
+footer {
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    z-index: 0;
+    background-color: black;
+    color: white;
+  
+    text-align: center;
+}*/
 
 /* formato web */
-@media (min-width: 700px) {
+/*@media (min-width: 700px) {
 
     .contenedor {
     
         grid-template-areas: "head head"
                             "nav nav"
-                            "main main"
+                            "main lat"
                             "foot foot";
     }
     
@@ -56,7 +489,7 @@ header h1 {
         display: inline;
         list-style: none;
 
-        /* border: 1px solid black; */
+        /* border: 1px solid black; *//*
 
         margin-left: -4px;
 
@@ -93,18 +526,18 @@ header h1 {
         height: 100%;
     }
 
-}
+}*/
 
 
 /* Formato smartphone */
-@media (max-width: 700px) {
+/*@media (max-width: 700px) {
 
     .contenedor {
     
         grid-template-areas: "head head"
                             "nav nav"
                             "main main"
-                            "main main"
+                            "lat lat"
                             "foot foot";
     }
 
@@ -123,7 +556,7 @@ header h1 {
         margin:0;
         padding:0;
         /* border-top: 1px solid rgba(255, 255, 255, 0.10); */
-    }
+    /*}
 
     nav ul li{
         list-style: none;
@@ -222,7 +655,7 @@ header h1 {
         transform: rotate(-135deg);
         margin-top: -9px;
     }
-}
+}*/
 
 /* footer {
     grid-area: foot;

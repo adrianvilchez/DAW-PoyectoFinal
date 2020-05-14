@@ -1,6 +1,6 @@
 <?php
-    function abrirConexion($servidor, $usuario, $password, $baseDatos) {
-        return new mysqli($servidor, $usuario, $password, $baseDatos);
+    function abrirConexion() {
+        return new mysqli('localhost', 'root', '43pa2pat7XI28', 'yourband');
     }
 
     function cerrarConexion($link) {

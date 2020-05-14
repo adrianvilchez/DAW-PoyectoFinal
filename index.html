@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SearchBand</title>
 
-    <style>
+    <link rel="stylesheet" type="text/css" href="css/global.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width: 768px)">
+
+    <title>YourBand</title>
+
+    <!-- <style>
         @import url("css/global.css");
-    </style>
+    </style> -->
 
     <script src="js/script.js"></script>
 </head>
@@ -16,37 +20,54 @@
     
     <div class="contenedor">
         <header>
-            <h1>SearchBand</h1>
+            <div class="imagenHeader">
+                <a href="#"><img src='./img/icon-header-2.png' alt='Icono de la cabecera' /></a>
+            </div>
+    
+            <!-- <nav>
+                <ul>
+                    <li class="nav_item activo"><a href="">Noticias</a></li>
+                    <li class="nav_item"><a href="html/grupos.html">Grupos</a></li>
+                    <li class="nav_item"><a href="html/musicos.html">Músicos</a></li>
+                </ul>
+            </nav> -->
+            <div class="tituloHeader">
+                <h1>YourBand</h1>
+            </div>
+
+            <div class="login">
+                <div class="entrar">
+                    <a href="./html/login.html">Entrar</a>
+                </div>
+                <div class="registrarse">
+                    <a href="./html/registro.html">Registrarse</a>
+                </div>
+            </div>
         </header>
 
-        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" hidden>
+        <!-- <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" hidden>
         <label for="openSidebarMenu" class="sidebarIconToggle">
             <div class="spinner diagonal part-1"></div>
             <div class="spinner horizontal"></div>
             <div class="spinner diagonal part-2"></div>
-        </label>
+        </label> -->
 
-        <nav>
-            <ul>
-                <li class="nav_item activo"><a href="">Inicio</a></li>
-                <li class="nav_item"><a href="html/grupos.html">Grupos</a></li>
-                <li class="nav_item"><a href="html/musicos.html">Músicos</a></li>
-            </ul>
-        </nav>
         <main>
-            <input type="button" value="Actualiza">
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
-            <h1>BLA</h1>
+            <div id="mainContainer">
+
+                <h1>Últimas peticiones</h1>
+            
+                <hr />
+
+                <input name="generar" type="button" value="Actualiza">
+
+                <div class="posts">
+                </div>
+            </div>
+
+            <!-- <div id="rightContainer">
+                    
+            </div> -->
         </main>
         <footer>
             <h1>BLI</h1>
