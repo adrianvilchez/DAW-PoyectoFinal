@@ -95,7 +95,7 @@ h1, span {
     background-color: var(--input_hover);
 }
 
-.contenedorInput, #inputEnviar {
+.contenedorInput, #inputEnviar, #inputRegistro {
     height: 50px;
 
     /* make the borders more round */
@@ -131,6 +131,21 @@ h1, span {
 
 #inputEnviar:hover {
     background-color: var(--submit_hover);
+    /* simple color transition on hover */
+    transition: background-color, 1s;
+    cursor: pointer;
+}
+
+#inputRegistro {
+    background-color: rgb(24, 24, 122);
+    padding-left: 0;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+#inputEnviar:hover {
+    background-color: rgb(35, 35, 145);
     /* simple color transition on hover */
     transition: background-color, 1s;
     cursor: pointer;

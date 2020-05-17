@@ -27,7 +27,7 @@ function comprobarFormulario() {
             contenedor.innerHTML += "El usuario '" + usuario.value + "' ya existe.";
         } else {
             // Si la creación es exitosa, redirigimos al login
-            location.href="http://localhost/DAW-PoyectoFinal/html/login.html";
+            location.href="http://localhost/DAW-PoyectoFinal/vista/login.php";
         }
 
         // Comprobamos que la contraseña sea entre 8 y 16 caracteres

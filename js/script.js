@@ -126,9 +126,30 @@ function obtenerAvatar() {
     });
 }
 
+
+/*Cuando se hace click en el botón, muestra el submenu*/
+function desplegable() {   
+    //Añade una clase al elemento que tenga el id myDropdown
+    document.getElementById("desplegable").classList.toggle("show");
+
+    if (!this.matches('.botonDesplegable')) {
+        var dropdowns = document.getElementsByClassName("contenidoDesplegable");
+        var i;
+        for (i = 0;  i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          
+          //Busca dentro de drop-content los elementos con la clase show
+          if (openDropdown.classList.contains('show')){
+            //elimina la clase show de los elementos dentro de drop-content
+            openDropdown.classList.remove('show');
+          }
+        }
+    }
+  }
+
 function init() {
     document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
-    document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
+    document.querySelector("button[name='botonDesplegable']").addEventListener("click", desplegable);
 }
 
 window.onload = init;

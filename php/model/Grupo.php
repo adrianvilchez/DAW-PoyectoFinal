@@ -1,11 +1,20 @@
 <?php
-    class Comentario {
+    class Grupo {
         // Propiedades
-        private $idComentario;
+        private $idGrupo;
         private $nombreGrupo;
         private $numeroIntegrantes;
         private $cp;
         private $estaCompleto;
+
+        public function __construct($idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto) {
+
+            $this->$idGrupo = $idGrupo;
+            $this->$nombreGrupo = $nombreGrupo;
+            $this->$numeroIntegrantes = $numeroIntegrantes;
+            $this->$cp = $cp;
+            $this->$estaCompleto = $estaCompleto;
+        }
 
         // Métodos:
         public function getIdGrupo() {

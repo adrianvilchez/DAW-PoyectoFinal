@@ -114,6 +114,10 @@ header {
     text-align: left;
     margin: 10px;
 }
+.login li {
+    list-style: none;
+    text-decoration: none !important;
+}
 
 nav {
     text-align: end;
@@ -279,6 +283,58 @@ footer {
   
     text-align: center;
 }
+
+
+
+
+/* menu desplegable */
+/*Botón*/
+.botonDesplegable {
+    background-color:  #8DEBF7;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /*Botón hover y focus*/
+  .botonDesplegable:hover, drop-buttton:hover {
+    background-color: #2EABAB;
+  }
+  
+  /*Posición del contenedor*/
+  .menuDesplegable {
+    position: relative;
+    display: inline-block;
+   }
+  
+  /*submenu*/
+  .contenidoDesplegable {
+    display: none;
+    position: absolute;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .contenidoDesplegable a {
+    color: #207878;
+    padding: 12px 16px;
+    display: block;
+  }
+  
+  .contenidoDesplegable a:hover {
+    background-color: #f1f1f1
+  }
+
+  .show {
+    display: block;
+  }
+  
+  
+  
 
 /*html , body {
     max-width: 1920px;

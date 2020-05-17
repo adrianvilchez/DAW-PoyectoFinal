@@ -21,7 +21,7 @@ function comprobarFormulario() {
 
         console.log(texto);
         
-        location.href="http://localhost/DAW-PoyectoFinal/index.html";
+        location.href="http://localhost/DAW-PoyectoFinal/vista/principal.php";
     });
 }
 

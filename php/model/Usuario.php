@@ -1,4 +1,11 @@
 <?php
+    // llamada normal
+    //include_once('../db/conexionBBDD.php');
+
+    // llamada desde index.php
+    include_once('php/db/conexionBBDD.php');
+    include_once('SesionUsuario.php');
+
     class Usuario {
         // Propiedades
         private $idUsuario;
@@ -11,6 +18,38 @@
         private $admin;
 
         // Métodos:
+        public function comprobarUsuario($usuario, $contrasenya) {
+
+            $link = abrirConexion();
+
+            $stmt = $link->prepare("SELECT * FROM usuarios WHERE nombre = ? AND contrasenya = ?");
+            $stmt->bind_param("ss", $usuario, $contrasenya);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+
+            if ($result->num_rows === 0) {
+                return false;
+            } else {
+                return true;
+            }
+
+            $stmt->close();
+        }
+    
+        public function establecerUsuario($usuario) {
+
+            $link = abrirConexion();
+
+            $stmt = $link->prepare("SELECT * FROM usuarios WHERE nombre = ?");
+            $stmt->bind_param("s", $usuario);
+            $stmt->execute();
+
+            $this->nombre = $usuario;
+
+            $stmt->close();
+        }
+
         public function getIdUsuario() {
             return $this->idUsuario;
         }
