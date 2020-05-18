@@ -7,8 +7,6 @@
         function obtenerGrupos() {
 
             $grupos = array();
-
-            $datos = array();
     
             // Hacer consulta a modelo y obtener grupos - Devolver array de grupos
     
@@ -18,12 +16,32 @@
     
             while ($fila = extraerResultados($result)) {
                 
-                $auxGrupo = new Grupo($fila[0], $fila[1], $fila[2], $fila[3], $fila[4]);
+                //$auxGrupo = new Grupo($fila[0], $fila[1], $fila[2], $fila[3], $fila[4]);
     
-                array_push($grupos, $auxGrupo);
+                //array_push($grupos, $auxGrupo);
+
+                $auxGrupo = new Grupo();
+
+                $auxGrupo->IdGrupo = $fila[0];
+                $auxGrupo->NombreGrupo = $fila[1];
+                $auxGrupo->NumeroIntegrantes = $fila[2];
+                $auxGrupo->Cp = $fila[3];
+                $auxGrupo->EstaCompleto = $fila[4];              
+
+                $grupos[] = array($auxGrupo);
+
+                /*$auxGrupo = new Grupo(array('idGrupo' => $fila[0],
+                                            'nombreGrupo' => $fila[1],
+                                            'numeroIntegrantes' => $fila[2],
+                                            'cp' => $fila[3],
+                                            'estaCompleto' => $fila[4]));
+
+                $grupos[] = array($auxGrupo);*/
+
             }
-    
+
             return $grupos;
+            //return json_encode($grupos);
             $stmt->close();
         }
 

@@ -1,9 +1,9 @@
 <?php
     // llamada normal
-    //include_once('../db/conexionBBDD.php');
+    include_once('../db/conexionBBDD.php');
 
     // llamada desde index.php
-    include_once('php/db/conexionBBDD.php');
+    //include_once('php/db/conexionBBDD.php');
     include_once('SesionUsuario.php');
 
     class Usuario {
@@ -17,7 +17,56 @@
         private $avatar;
         private $admin;
 
-        // Métodos:
+        // Constructor
+        /*public function __construct($idUsuario, $nombre, $contrasenya, $cp, $email, $telefono, $avatar,  $admin) {
+
+            $this->$idUsuario = $idUsuario;
+            $this->$nombre = $nombre;
+            $this->$contrasenya = $contrasenya;
+            $this->$cp = $cp;
+            $this->$email = $email;
+            $this->$telefono = $telefono;
+            $this->$avatar = $avatar;
+            $this->$admin = $admin;
+        }*/
+
+        function __construct() {
+            $a = func_get_args();
+
+            $i = func_num_args();
+
+            if (method_exists($this, $f = '__construct' . $i)) {
+
+                call_user_func_array(array($this, $f), $a);
+            }
+        }
+       
+        function __construct1($nombre) {
+            $this->$nombre = $nombre;
+        }
+       
+        function __construct2($nombre, $contrasenya) {
+            $this->$nombre = $nombre;
+            $this->$contrasenya = $contrasenya;
+        }
+
+        function __construct3($nombre, $avatar, $contrasenya = 0) {
+            $this->$nombre = $nombre;
+            $this->$avatar = $avatar;
+        }
+       
+        function __construct4($idUsuario, $nombre, $contrasenya, $cp, $email, $telefono, $avatar,  $admin) {
+            $this->$idUsuario = $idUsuario;
+            $this->$nombre = $nombre;
+            $this->$contrasenya = $contrasenya;
+            $this->$cp = $cp;
+            $this->$email = $email;
+            $this->$telefono = $telefono;
+            $this->$avatar = $avatar;
+            $this->$admin = $admin;
+        } 
+
+        // [LOGIN]: Métodos para comprobar si el usuario existe
         public function comprobarUsuario($usuario, $contrasenya) {
 
             $link = abrirConexion();

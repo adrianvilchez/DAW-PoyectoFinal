@@ -45,6 +45,7 @@
 
                     $crearGrupo = new GruposController();
                     $comprobarGrupo = new GruposController();
+                    $obtenerGrupos = new GruposController();
 
                     $grupo = "Pacman";
 
@@ -60,12 +61,65 @@
 
                     $aux = $controladorGrupo->obtenerGrupos();
 
-                    //var_dump($aux[1]);
-                    $bla = get_object_vars($aux[0]);
-
-                    //var_dump($bla);
+                    //$bla = get_object_vars($aux[0]);
             
-                    echo var_dump($bla);
+                    //var_dump($aux);
+
+
+                    $myArray = json_decode(json_encode($aux), true);
+
+                    
+
+                    foreach($myArray as $auxGrupo)
+                    {
+                        foreach($auxGrupo as $grupo)
+                            {
+                                //print_r($grupo);
+
+                                foreach($grupo as $g)
+                                {
+                                    $contador = 1;
+
+                                    $grupo = new Grupo();
+
+
+                                    switch ($contador) {
+                                        case 1:
+                                            $grupo->setIdGrupo($g);
+                                            echo '<p>idGrupo: ' . $grupo->getIdGrupo() . ' </p>';
+                                            $contador++;
+                                            break;
+                                        case 2:
+                                            $grupo->setNombreGrupo($g);
+                                            echo '<p>idGrupo: ' . $grupo->getNombreGrupo() . ' </p>';
+                                            $contador++;
+                                            break;
+                                        case 3:
+                                            $grupo->setNumeroIntegrantes($g);
+                                            echo '<p>numeroIntegrantes: ' . $grupo->getNumeroIntegrantes() . ' </p>';
+                                            $contador++;
+                                            break;
+                                        case 4:
+                                            $grupo->setCp($g);
+                                            echo '<p>cp: ' . $grupo->getCp() . ' </p>';
+                                            $contador++;
+                                            break;
+                                        case 5:
+                                            $grupo->setEstaCompleto($g);
+                                            echo '<p>estaCompleto: ' . $grupo->getEstaCompleto() . ' </p>';
+                                            $contador = 0;
+                                            break;
+                                        default:
+                                            # code...
+                                            break;
+                                    }
+
+                                    
+                                    
+                                }
+                            }
+                        echo "<br>";
+                    }
                     
                 ?>
                 

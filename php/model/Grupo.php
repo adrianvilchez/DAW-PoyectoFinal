@@ -7,8 +7,32 @@
         private $cp;
         private $estaCompleto;
 
-        public function __construct($idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto) {
+        /*public function __construct($idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto) {
 
+            $this->$idGrupo = $idGrupo;
+            $this->$nombreGrupo = $nombreGrupo;
+            $this->$numeroIntegrantes = $numeroIntegrantes;
+            $this->$cp = $cp;
+            $this->$estaCompleto = $estaCompleto;
+        }*/
+
+        function __construct() {
+            $a = func_get_args();
+
+            $i = func_num_args();
+
+
+            if (method_exists($this, $f = '__construct' . $i)) {
+
+                call_user_func_array(array($this, $f), $a);
+            }
+        }
+       
+        function __construct1($nombreGrupo) {
+            $this->$nombreGrupo = $nombreGrupo;
+        }
+       
+        function __construct2($idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto) {
             $this->$idGrupo = $idGrupo;
             $this->$nombreGrupo = $nombreGrupo;
             $this->$numeroIntegrantes = $numeroIntegrantes;

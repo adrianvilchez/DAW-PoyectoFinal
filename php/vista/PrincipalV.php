@@ -11,19 +11,34 @@
 
     // echo $mensaje;
 
-    if (isset($_SESSION['usuario']))
-        echo  "    " . $_SESSION['usuario'];
+    if (isset($_SESSION['usuario'])) echo "Bienvenido " . $usuario->getNombre();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
     <!-- Head -->
-    <?php
-        $titulo = "Noticias";
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        include 'componentes/Head.php';
-    ?>
+        <link rel="stylesheet" type="text/css" href="../../css/global.css" media="screen and (min-width: 769px)">
+        
+        <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width: 768px)">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <title>
+
+            <h1>Noticias</h1>
+        </title>
+
+        <style>
+            @import url("../../css/carousel.css");
+        </style>
+
+        <script src="../../js/script.js"></script>
+    </head>
 
     <body>
         
@@ -42,13 +57,13 @@
             </label> -->
 
             <main>
-                <div id="mainContainer">
 
+                <div id="mainContainer">
                     <section>
                         <h1>
                             <?php 
                             
-                                if (isset($_SESSION['usuario'])) echo "Bienvenido " . $usuario->getNombre();
+                                //if (isset($_SESSION['usuario'])) echo "Bienvenido " . $usuario->getNombre();
                             
                             ?></h1>
                     </section>
@@ -65,7 +80,7 @@
 
                 <!-- RinghtContainer -->
                 <?php
-                    include 'componentes/RightContainer.php';
+                    //include 'componentes/RightContainer.php';
                 ?>
             </main>
 
