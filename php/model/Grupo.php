@@ -3,12 +3,14 @@
         // Propiedades
         private $idGrupo;
         private $nombreGrupo;
+        private $generoGrupo;
+        private $descripcion;
         private $numeroIntegrantes;
         private $cp;
         private $estaCompleto;
 
         /*public function __construct($idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto) {
-
+descripcion
             $this->$idGrupo = $idGrupo;
             $this->$nombreGrupo = $nombreGrupo;
             $this->$numeroIntegrantes = $numeroIntegrantes;
@@ -32,9 +34,11 @@
             $this->$nombreGrupo = $nombreGrupo;
         }
        
-        function __construct2($idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto) {
+        function __construct2($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $estaCompleto) {
             $this->$idGrupo = $idGrupo;
             $this->$nombreGrupo = $nombreGrupo;
+            $this->$generoGrupo = $generoGrupo;
+            $this->$descripcion = $descripcion;
             $this->$numeroIntegrantes = $numeroIntegrantes;
             $this->$cp = $cp;
             $this->$estaCompleto = $estaCompleto;
@@ -63,6 +67,22 @@
 
         public function setNumeroIntegrantes($numeroIntegrantes) {
             $this->numeroIntegrantes = $numeroIntegrantes;
+        }
+
+        public function getGeneroGrupo() {
+            return $this->generoGrupo;
+        }
+
+        public function setGeneroGrupo($generoGrupo) {
+            $this->generoGrupo = $generoGrupo;
+        }
+
+        public function getDescripcion() {
+            return $this->descripcion;
+        }
+
+        public function setDescripcion($descripcion) {
+            $this->descripcion = $descripcion;
         }
 
         public function getCp() {

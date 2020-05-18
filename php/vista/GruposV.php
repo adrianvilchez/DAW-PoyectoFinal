@@ -37,61 +37,77 @@
                 <h1>Últimas peticiones</h1>
             
                 <hr />
+                
+                <input name="generar" type="button" value="Actualiza">
 
-                <!-- por cada uno de los grupos que obtengo del controlador obtenerGrupos muestro el grupo -->
-                <?php
+                <div class="posts">
 
-                    //$grupo = new Grupo();
+                    <!-- por cada uno de los grupos que obtengo del controlador obtenerGrupos muestro el grupo -->
+                    <?php
 
-                    $crearGrupo = new GruposController();
-                    $comprobarGrupo = new GruposController();
-                    $obtenerGrupos = new GruposController();
+                        //$grupo = new Grupo();
 
-                    $grupo = "Pacman";
+                        $crearGrupo = new GruposController();
+                        $comprobarGrupo = new GruposController();
+                        $obtenerGrupos = new GruposController();
 
-                    // Comprobamos y creamos grupos
-                    if ($comprobarGrupo->comprobarGrupo($grupo)) {
-                        echo "El grupo ya existe.";
-                        
-                    } else {
-                        echo "El grupo no existe.";
-                        echo "Creamos el grupo";
-                        $controladorGrupo->crearGrupo(null, $grupo, 5, 46910, 0);
-                    }
+                        $grupo = "Archero";
 
-                    $aux = $controladorGrupo->obtenerGrupos();
+                        // Comprobamos y creamos grupos
+                        if ($comprobarGrupo->comprobarGrupo($grupo)) {
+                            echo "El grupo ya existe.";
+                            
+                        } else {
+                            echo "El grupo no existe.";
+                            echo "Creamos el grupo";
+                            $controladorGrupo->crearGrupo(null, $grupo, 'Rock', 'sabdajsdgnahskjdmhasjodklashdjkashdsñjdashdjsk', 3, 46910, 1);
+                        }
 
-                    //$bla = get_object_vars($aux[0]);
-            
-                    //var_dump($aux);
+                        $aux = $controladorGrupo->obtenerGrupos();
 
-
-                    $myArray = json_decode(json_encode($aux), true);
-
+                        /*echo "<div class='grupo'>";
+                                        "<div class='nombreGrupo'>" +
+                                            "<h3>" + datos[i].titulo + "</h3>" +
+                                        "</div>" +
                     
+                                        "<div class='descripcion'>" +
+                                            "<p>" + datos[i].descripcion + "</p>" +
+                                        "</div>" +
+                    
+                                        "<div class='fechaAutor'>" +
 
-                    foreach($myArray as $auxGrupo)
-                    {
-                        foreach($auxGrupo as $grupo)
-                            {
-                                //print_r($grupo);
+                                            "<img class='avatar' src='" + datos[i].avatar.replace(/\\/g, "") + "' alt='Avatar de usuario'>" +
 
-                                foreach($grupo as $g)
-                                {
-                                    $contador = 1;
+                                            "<div class='autor'>" +
+                                                "<p>" + datos[i].nombre + "</p>" +
+                                            "</div>" +
+                    
+                                            "<div class='fecha'>" +
+                                                "<p>" + datos[i].fecha + "</p>" +
+                                            "</div>" +
+
+                                            "<input class='invitar' type='button' value='Invitar'>" +
+                                        "</div>" +
+                                    "</div>";*/
+
+                        foreach($aux as $auxGrupo) {
+                            foreach($auxGrupo as $grupo){
+                                foreach($grupo as $g){
+                                    $contador = 2;
 
                                     $grupo = new Grupo();
 
-
                                     switch ($contador) {
-                                        case 1:
+                                        /*case 1:
                                             $grupo->setIdGrupo($g);
-                                            echo '<p>idGrupo: ' . $grupo->getIdGrupo() . ' </p>';
+                                            echo "<div class='titulo'>";
+                                            echo '<h3>idGrupo: ' . $grupo->getIdGrupo() . '</h3>';
+                                            echo '</div>';
                                             $contador++;
-                                            break;
+                                            break;*/
                                         case 2:
                                             $grupo->setNombreGrupo($g);
-                                            echo '<p>idGrupo: ' . $grupo->getNombreGrupo() . ' </p>';
+                                            echo '<p>nombreGrupo: ' . $grupo->getNombreGrupo() . ' </p>';
                                             $contador++;
                                             break;
                                         case 3:
@@ -112,21 +128,13 @@
                                         default:
                                             # code...
                                             break;
-                                    }
-
-                                    
-                                    
+                                    } 
                                 }
                             }
-                        echo "<br>";
-                    }
-                    
-                ?>
-                
+                            echo "<br>";
+                        }
 
-                <input name="generar" type="button" value="Actualiza">
-
-                <div class="posts">
+                    ?>
                 </div>
             </div>
 

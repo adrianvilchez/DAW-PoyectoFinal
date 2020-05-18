@@ -9,11 +9,11 @@
              return $todosLosGrupos;
         }
 
-        public function crearGrupo($idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto) {
+        public function crearGrupo($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $estaCompleto) {
             include_once('../model/GruposM.php');
             $modeloGrupos = new GruposModel();
             
-            $crearGrupo = $modeloGrupos->crearGrupo(null, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto);
+            $crearGrupo = $modeloGrupos->crearGrupo(null, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $estaCompleto);
 
              return $crearGrupo;
         }

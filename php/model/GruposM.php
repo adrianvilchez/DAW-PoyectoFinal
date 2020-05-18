@@ -24,9 +24,11 @@
 
                 $auxGrupo->IdGrupo = $fila[0];
                 $auxGrupo->NombreGrupo = $fila[1];
-                $auxGrupo->NumeroIntegrantes = $fila[2];
-                $auxGrupo->Cp = $fila[3];
-                $auxGrupo->EstaCompleto = $fila[4];              
+                $auxGrupo->GeneroGrupo = $fila[2];
+                $auxGrupo->Descripcion = $fila[3];
+                $auxGrupo->NumeroIntegrantes = $fila[4];
+                $auxGrupo->Cp = $fila[5];
+                $auxGrupo->EstaCompleto = $fila[6];              
 
                 $grupos[] = array($auxGrupo);
 
@@ -64,12 +66,12 @@
             $stmt->close();
         }
 
-        public function crearGrupo($idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto) {
+        public function crearGrupo($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $estaCompleto) {
 
             $link = abrirConexion();
 
-            $stmt = $link->prepare("INSERT INTO grupos (idGrupo, nombreGrupo, numeroIntegrantes, cp, estaCompleto) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("isiii", $idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto);
+            $stmt = $link->prepare("INSERT INTO grupos (idGrupo, nombreGrupo, generoGrupo, descripcion, numeroIntegrantes, cp, estaCompleto) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("isssiii", $idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $estaCompleto);
             $stmt->execute();
 
             $result = $stmt->get_result();
