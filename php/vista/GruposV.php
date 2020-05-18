@@ -18,10 +18,30 @@
     
     <!-- Head -->
     <?php
-        $titulo = "Grupos";
+        //$titulo = "Grupos";
         
-        include 'componentes/Head.php';
+        //include 'componentes/Head.php';
     ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../css/global.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width: 768px)">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>
+        <?php
+            //echo $titulo;
+        ?>
+        Grupos
+    </title>
+
+    <script src="../../js/script.js"></script>
+</head>
 <body>
     
     <div class="contenedor">
@@ -133,15 +153,67 @@
                             }
                             echo "<br>";
                         }
-
                     ?>
                 </div>
             </div>
 
             <!-- RinghtContainer -->
             <?php
-                include 'componentes/RinghtContainer.php';
+                //include 'componentes/RinghtContainer.php';
             ?>
+            <div id="rightContainer">
+                <h1>Filtrado</h1>
+
+                <hr />
+
+                <div class="filtradoGrupos">
+                    <div class="contenedorInput">
+
+                        <input placeholder="Buscar..." type="search" name="busqueda" class="input-busqueda">
+                    </div>
+
+                    <div class="range-slider">
+                        <input name="slider"class="range-slider__range" type="range" value="0" min="0" max="5">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <div class="generos">
+
+                        <div class="rock genero">
+                            <img class="iconosGenero" src="../../img/generos/Rock-icon.png" alt="">
+                        </div>
+
+                        <div class="indie genero">
+                            <img class="iconosGenero" src="../../img/generos/Disco-icon.png" alt="">
+                        </div>
+
+                        <div class="heavy-metal genero">
+                        <img class="iconosGenero" src="../../img/generos/Heavy-Metal-icon.png" alt="">
+                        </div>
+
+                        <div class="pop genero">
+                        <img class="iconosGenero" src="../../img/generos/Pop-icon.png" alt="">
+                        </div>
+
+                        <div class="tecno genero">
+                        <img class="iconosGenero" src="../../img/generos/Techno-icon.png" alt="">
+                        </div>
+
+                        <div class="dance genero">
+                        <img class="iconosGenero" src="../../img/generos/Dance-icon.png" alt="">
+                        </div>
+
+                        <div class="punk-rock genero">
+                        <img class="iconosGenero" src="../../img/generos/Punk-Rock-icon.png" alt="">
+                        </div>
+
+                        <div class="acustico genero">
+                        <img class="iconosGenero" src="../../img/generos/Acoustic-icon.png" alt="">
+                        </div>   
+                    </div>
+                </div>
+
+            </div>
         </main>
 
         <!-- Footer -->

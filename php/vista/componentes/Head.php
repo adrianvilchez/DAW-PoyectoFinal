@@ -3,6 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../css/global.css" media="screen and (min-width: 769px)">
     <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width: 768px)">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,5 +15,5 @@
         ?>
     </title>
 
-    <script src="../js/script.js"></script>
+    <script src="../../js/script.js"></script>
 </head>
