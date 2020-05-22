@@ -66,9 +66,10 @@ header {
     display: inline-block !important;
     margin: auto;
     margin-right: 10px;
+    text-align: center;
 }
 
-.entrar a {
+.entrar input {
     border-color: #d1d5da !important;
     border-radius: 3px !important;
     
@@ -81,6 +82,8 @@ header {
     text-decoration: none !important;
     padding-right: 8px !important;
     padding-left: 8px !important;
+    background: none;
+    padding: 2px;
 
     color: #ffffff;
 }
@@ -91,7 +94,7 @@ header {
     margin-left: 0;
 }
 
-.registrarse a {
+.registrarse input {
     border-color: #d1d5da !important;
     border-radius: 3px !important;
     
@@ -103,6 +106,10 @@ header {
     text-decoration: none !important;
     padding-right: 8px !important;
     padding-left: 8px !important;
+
+    background: none;
+    padding-top: 2px;
+    padding-bottom: 2px;
 
     color: #ffffff;
 }
@@ -170,6 +177,7 @@ li a:hover {
     border: 1px solid #e1e4e8 !important;
 
     border-color: #E1E4E8;
+
 }
   
 main {
@@ -179,6 +187,7 @@ main {
     grid-template-columns: 4fr 2fr;
   
     width: 100%;
+    padding-bottom: 10px;
 }
 
 main p, main h1, main h2, main h3 {
@@ -199,10 +208,11 @@ main p, main h1, main h2, main h3 {
 
 #rightContainer {
     width: 100%;
-    height: 100%;
+    height: calc(100% -10px);
     border-left: 2px solid #24292E;
     /* border-top: 2px solid var(--input_bg); */
     background: linear-gradient(#3d3d3d 10%, #24292E 25%);
+    margin-top: 10px;
 }
 
 #rightContainer h1 {
@@ -454,6 +464,123 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     text-align: left;
     margin-left: 1%;
 }
+
+
+/* INICIO Grupos */
+
+.grupos {
+    width: 98%;
+    margin: 0 auto;
+}
+
+.grupo {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr ;
+
+    background-color: rgba(250, 215, 215, 0.2);
+    margin-top: 30px;
+}
+
+.grupos .grupo:last-child {
+    /* margin-bottom: 10px; */
+}
+
+.nombreGrupo {
+    background-color: #24292E;
+}
+
+.nombreGrupo h3 {
+    color: var(--input_bg);
+}
+
+.avatarComentarios {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+}
+
+.avatarGrupo {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 5px;
+    text-align: left;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.descripcionGrupo {
+
+    
+    align-self: center;
+}
+
+.descripcionGrupo p {
+    text-align: center;
+}
+
+.noDescripcionGrupo {
+    align-self: center;
+}
+
+.noDescripcionGrupo p {
+    text-align: center;
+    align-self: center;
+}
+
+.datosGrupo {
+    display: grid;
+    grid-template-columns: 6fr 2fr 2fr 2fr;
+
+    background-color: #24292E;
+}
+
+.datosGrupo * {
+    color: var(--input_bg);
+    text-align: center;
+    align-self: center;
+}
+
+.selector {
+    border-color: #d1d5da !important;
+    border-radius: 3px !important;
+    
+    border: 1px solid #e1e4e8 !important;
+
+    border-color: #E1E4E8;
+}
+
+/*.textoGrupo {
+    text-align: start;
+    margin-left: 5px;
+}*/
+
+.generoGrupo p:last-child, .numeroIntegrantes p:last-child, .cpGrupo p:last-child, .grupoCompleto p:last-child {
+    text-align: start;
+    margin-left: 10px;
+}
+
+
+.generoGrupo, .numeroIntegrantes, .cpGrupo, .grupoCompleto {
+    display: grid;
+    grid-template-columns: 1fr 5fr ;
+}
+
+.generoGrupo {
+    margin-left: 10px;
+}
+
+.numeroIntegrantes {
+    
+}
+
+.cpGrupo {
+    
+}
+
+.grupoCompleto {
+
+}
+
+/* FIN Grupos */
   
 footer {
     grid-area: foot;

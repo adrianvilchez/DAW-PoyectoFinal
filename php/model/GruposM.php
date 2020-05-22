@@ -1,6 +1,6 @@
 <?php
-    include_once('../db/conexionBBDD.php');
-    include_once('../model/Grupo.php');
+    include_once(dirname(__FILE__).'./../db/conexionBBDD.php');
+    include_once(dirname(__FILE__).'./../model/Grupo.php');
 
     class GruposModel {
 
@@ -15,36 +15,16 @@
             $result = consultarBD('SELECT * FROM `grupos`', $link);
     
             while ($fila = extraerResultados($result)) {
-                
-                //$auxGrupo = new Grupo($fila[0], $fila[1], $fila[2], $fila[3], $fila[4]);
-    
-                //array_push($grupos, $auxGrupo);
 
-                $auxGrupo = new Grupo();
+                $auxGrupo = new Grupo($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7]);
 
-                $auxGrupo->IdGrupo = $fila[0];
-                $auxGrupo->NombreGrupo = $fila[1];
-                $auxGrupo->GeneroGrupo = $fila[2];
-                $auxGrupo->Descripcion = $fila[3];
-                $auxGrupo->NumeroIntegrantes = $fila[4];
-                $auxGrupo->Cp = $fila[5];
-                $auxGrupo->EstaCompleto = $fila[6];              
-
-                $grupos[] = array($auxGrupo);
-
-                /*$auxGrupo = new Grupo(array('idGrupo' => $fila[0],
-                                            'nombreGrupo' => $fila[1],
-                                            'numeroIntegrantes' => $fila[2],
-                                            'cp' => $fila[3],
-                                            'estaCompleto' => $fila[4]));
-
-                $grupos[] = array($auxGrupo);*/
-
+                array_push($grupos, $auxGrupo);
             }
 
+            cerrarConexion($link);
+
             return $grupos;
-            //return json_encode($grupos);
-            $stmt->close();
+
         }
 
         public function comprobarGrupo($nombreGrupo) {
@@ -57,30 +37,30 @@
 
             $result = $stmt->get_result();
 
+            cerrarConexion($link);
+
             if ($result->num_rows === 0) {
                 return false;
             } else {
                 return true;
             }
-
-            $stmt->close();
         }
 
         public function crearGrupo($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $estaCompleto) {
 
             $link = abrirConexion();
 
-            $stmt = $link->prepare("INSERT INTO grupos (idGrupo, nombreGrupo, generoGrupo, descripcion, numeroIntegrantes, cp, estaCompleto) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("isssiii", $idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $estaCompleto);
+            $stmt = $link->prepare("INSERT INTO grupos (idGrupo, nombreGrupo, generoGrupo, descripcion, numeroIntegrantes, cp, avatarGrupo, staCompleto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("isssiiii", $idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $avatarGrupo, $estaCompleto);
             $stmt->execute();
 
             $result = $stmt->get_result();
 
+            cerrarConexion($link);
+
             // Comprobamos si existe el grupo
             
             return $result;
-
-            $stmt->close();
         }
     }
 

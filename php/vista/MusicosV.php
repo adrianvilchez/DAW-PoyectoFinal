@@ -36,7 +36,20 @@
                     <!-- Muestro todos los músicos y sus instrumentos aquí -->
                     <?php
 
-                        //
+                        include_once '../model/UsuariosM.php';
+                        include_once '../model/Usuario.php';
+
+                        $obtenerMusicos = new MusicosModel();
+
+                        $aux = $obtenerMusicos->obtenerMusicos();
+
+                        foreach($aux as $auxMusico) {
+                            echo $auxMusico->getNombre();
+
+                            echo $auxMusico->getAvatar();
+
+                            echo "<br/  >";
+                        }
                         
                     ?>
                     

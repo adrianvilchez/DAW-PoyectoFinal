@@ -1,3 +1,6 @@
-<footer>
-    <h1>BLI</h1>
-</footer>
+            <footer>
+                <h1>Esto es un footer</h1>
+            </footer>
+        </div>
+    </body>
+</html>

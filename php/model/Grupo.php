@@ -7,41 +7,18 @@
         private $descripcion;
         private $numeroIntegrantes;
         private $cp;
+        private $avatarGrupo;
         private $estaCompleto;
-
-        /*public function __construct($idGrupo, $nombreGrupo, $numeroIntegrantes, $cp, $estaCompleto) {
-descripcion
-            $this->$idGrupo = $idGrupo;
-            $this->$nombreGrupo = $nombreGrupo;
-            $this->$numeroIntegrantes = $numeroIntegrantes;
-            $this->$cp = $cp;
-            $this->$estaCompleto = $estaCompleto;
-        }*/
-
-        function __construct() {
-            $a = func_get_args();
-
-            $i = func_num_args();
-
-
-            if (method_exists($this, $f = '__construct' . $i)) {
-
-                call_user_func_array(array($this, $f), $a);
-            }
-        }
        
-        function __construct1($nombreGrupo) {
-            $this->$nombreGrupo = $nombreGrupo;
-        }
-       
-        function __construct2($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $estaCompleto) {
-            $this->$idGrupo = $idGrupo;
-            $this->$nombreGrupo = $nombreGrupo;
-            $this->$generoGrupo = $generoGrupo;
-            $this->$descripcion = $descripcion;
-            $this->$numeroIntegrantes = $numeroIntegrantes;
-            $this->$cp = $cp;
-            $this->$estaCompleto = $estaCompleto;
+        function __construct($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $avatarGrupo, $estaCompleto) {
+            $this->idGrupo = $idGrupo;
+            $this->nombreGrupo = $nombreGrupo;
+            $this->generoGrupo = $generoGrupo;
+            $this->descripcion = $descripcion;
+            $this->numeroIntegrantes = $numeroIntegrantes;
+            $this->cp = $cp;
+            $this->avatarGrupo = $avatarGrupo;
+            $this->estaCompleto = $estaCompleto;
         }
 
         // Métodos:
@@ -54,6 +31,7 @@ descripcion
         }
 
         public function getNombreGrupo() {
+            error_log("Llamando a 'getNombreGrupo': " . $this->nombreGrupo);
             return $this->nombreGrupo;
         }
 
@@ -91,6 +69,14 @@ descripcion
 
         public function setCp($cp) {
             $this->cp = $cp;
+        }
+
+        public function getAvatarGrupo() {
+            return $this->avatarGrupo;
+        }
+
+        public function setAvatarGrupo($avatarGrupo) {
+            $this->avatarGrupo = $avatarGrupo;
         }
 
         public function getEstaCompleto() {

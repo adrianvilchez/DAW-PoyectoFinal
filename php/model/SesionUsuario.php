@@ -10,14 +10,18 @@
             $_SESSION['usuario'] = $usuario;
         }
 
-        public function obtejerUsuarioActual() {
+        public function obtenerUsuarioActual() {
             return $_SESSION['usuario'];
         }
-
+        
         public function cerrarSesion() {
+            error_log("cerrando sesion");
+            //session_start();
             session_unset();
             session_destroy();
         }
     }
+
+
 
 ?>
