@@ -41,6 +41,8 @@ function obtenerComentariosUsuario(usuario) {
 
     }).then(function (texto) {
 
+        console.log(texto);
+
         let datos = JSON.parse(texto);
 
         console.log(texto);
@@ -219,7 +221,7 @@ function init() {
     if (URLactual.includes('?page=Grupos')/* || URLactual.includes('?page=Musicos')*/) {
         barSlider();
     }
-    
+
 }
 
 window.onload = init;

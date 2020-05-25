@@ -19,7 +19,7 @@
         
         <div id="contenedorIzquierdo">
             <div class="polaroid">
-                <a href="../index.php"><img src="./img/music_band.png" alt="computer icon"></a>
+                <a href="./index.php?page=News"><img src="./img/music_band.png" alt="computer icon"></a>
                 <p>¡Sé una estrella!</p>
             </div> 
         </div>
@@ -27,21 +27,27 @@
         
         <div id="contenedorDerecho">
             <form action="" method="post">
+
+                <?php
+                    if(isset($errorLogOn)) {
+                        echo $errorLogOn;
+                    }
+                ?>
                 <h1>¡Regístrate en YourBand!</h1>
 
                 <div class="contenedorInput">
                     <i class="fas fa-user"></i>
-                    <input placeholder="Usuario" type="text" name="usuario" class='input_field'>
+                    <input placeholder="Usuario" type="text" name="usuarioR" class='input_field'>
                 </div>
 
                 <div class="contenedorInput">
                     <i class="fas fa-envelope"></i>
-                    <input  placeholder="Email" type="email" name="email" id="field_email" class='input_field'>
+                    <input  placeholder="Email" type="email" name="emailR" id="field_email" class='input_field'>
                 </div>
 
                 <div class="contenedorInput">
                     <i class="fas fa-lock"></i>
-                    <input  placeholder="Contraseña" type="password" name="password" id="field_password" class='input_field'>
+                    <input  placeholder="Contraseña" type="password" name="passwordR" id="field_password" class='input_field'>
                 </div>
 
             

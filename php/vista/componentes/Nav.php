@@ -1,7 +1,7 @@
 <nav>
     <ul>
 
-    <li <?php  if (isset($_GET['page']) && $_GET['page'] == 'News') echo 'class="activo"';?>>
+        <li <?php  if (isset($_GET['page']) && $_GET['page'] == 'News') echo 'class="activo"';?>>
             <a href="./index.php?page=News">Noticias</a>
         </li>
         <li <?php  if (isset($_GET['page']) && $_GET['page'] == 'Grupos') echo 'class="activo"';?>>

@@ -1,9 +1,6 @@
 <?php
-    //include_once('../db/conexionBBDD.php');
-    //include_once('../model/Usuario.php');
-
-    include_once('php/db/conexionBBDD.php');
-    include_once('php/model/Usuario.php');
+    include_once (dirname(__FILE__).'./../db/conexionBBDD.php');
+    include_once (dirname(__FILE__).'./../model/Usuario.php');
 
     class MusicosModel {
 
@@ -87,12 +84,12 @@
             return $establecerUsuario;
         }
 
-        public function crearUsuario($idUsuario, $nombre, $contrasenya, $cp, $email, $telefono, $avatar,  $admin) {
+        public function crearUsuario($idUsuario, $nombre, $contrasenya, $cp, $email, $telefono, $avatar, $admin) {
 
             $link = abrirConexion();
 
-            $stmt = $link->prepare("INSERT INTO usuarios (idUsuario, nombre, contrasenya, cp, email, telefono, avatar,  admin) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("issisisi", $idUsuario, $nombre, $contrasenya, $cp, $email, $telefono, $avatar,  $admin);
+            $stmt = $link->prepare("INSERT INTO usuarios (idUsuario, nombre, contrasenya, cp, email, telefono, avatar, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("issisisi", $idUsuario, $nombre, $contrasenya, $cp, $email, $telefono, $avatar, $admin);
             $stmt->execute();
 
             $result = $stmt->get_result();

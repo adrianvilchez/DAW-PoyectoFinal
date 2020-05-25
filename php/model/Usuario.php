@@ -61,7 +61,7 @@
             $this->nombre = $usuario; 
         }*/
 
-        public function guardaUsuario() {
+        public function guardarUsuario() {
             $link = abrirConexion();
 
             $stmt = $link->prepare("INSERT INTO usuarios (nombre, contrasenya) VALUES (?, ?)");

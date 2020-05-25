@@ -17,7 +17,7 @@
         
         <div id="contenedorIzquierdo">
             <div class="polaroid">
-                <a href="../../index.php"><img src="./img/music_band.png" alt="computer icon"></a>
+                <a href="./index.php?page=News"><img src="./img/music_band.png" alt="computer icon"></a>
                 <p>¡Sé una estrella!</p>
             </div> 
         </div>

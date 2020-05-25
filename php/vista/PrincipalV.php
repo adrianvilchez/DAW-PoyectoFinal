@@ -1,11 +1,4 @@
 <?php
-
-    $pActivo = true;
-    $gActivo = false;
-    $mActivo = false;
-
-    // echo $_SESSION["usuario"];
-    
     include (dirname(__FILE__).'./componentes/Top.php');
     include (dirname(__FILE__).'./componentes/Header.php');
 
@@ -21,11 +14,14 @@
         case 'Grupos':
             include (dirname(__FILE__).'./GruposV.php');
             break;
+        case 'Musicos':
+            include (dirname(__FILE__).'./MusicosV.php');
+            break;
         
         default:
-        include (dirname(__FILE__).'./Main.php');
+            include (dirname(__FILE__).'./Main.php');
             break;
     }
 
-    include 'componentes/Footer.php';
+    include (dirname(__FILE__).'./componentes/Footer.php');
 ?>
