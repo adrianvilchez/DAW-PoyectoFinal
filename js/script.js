@@ -1,11 +1,3 @@
-
-/*SELECT grupos.nombreGrupo, usuarios.nombre, instrumentos.nombreInstrumento FROM `integrantes` 
-INNER JOIN grupos ON integrantes.idGrupo = grupos.idGrupo
-INNER JOIN usuariosInstrumentos ON usuariosInstrumentos.idUsuarioInstrumento = integrantes.idUsuarioInstrumento
-INNER JOIN usuarios ON usuarios.idUsuario = usuariosInstrumentos.idUsuario
-INNER JOIN instrumentos ON instrumentos.idInstumento = usuariosInstrumentos.idInstumento
-WHERE grupos.idGrupo = 1;*/
-
 function llamarAjax() {
 
     let main = document.querySelector("#mainContainer");
@@ -134,7 +126,7 @@ function desplegable() {
     //Añade una clase al elemento que tenga el id myDropdown
     document.getElementById("desplegable").classList.toggle("show");
 
-    if (!this.matches('.botonDesplegable')) {
+    if (!this.matches('.avatarPerfil')) {
         var dropdowns = document.getElementsByClassName("contenidoDesplegable");
         var i;
         for (i = 0;  i < dropdowns.length; i++) {
@@ -154,18 +146,6 @@ function desplegable() {
     console.log("deslogando");
 
     fetch('http://localhost/DAW-ProyectoFinal/php/controller/LogOutC.php', {
-		method: 'GET'
-    }).then(function (respuesta) {
-
-        location.href = 'http://localhost/DAW-ProyectoFinal/index.php';
-
-    });
-}
-
-function logIn() {
-    console.log("deslogando");
-
-    fetch('http://localhost/DAW-ProyectoFinal/php/controller/LogInC.php', {
 		method: 'GET'
     }).then(function (respuesta) {
 
@@ -211,7 +191,7 @@ function barSlider() {
 function init() {
     document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
 
-    //document.querySelector("button[name='botonDesplegable']").addEventListener("click", desplegable);
+    document.querySelector(".avatarPerfil").addEventListener("click", desplegable);
 
     document.querySelector('.divLogout').addEventListener('click', logOut);
 

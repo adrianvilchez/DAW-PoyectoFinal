@@ -24,6 +24,23 @@
             return $musicos;
         }
 
+        function obtenerMusico($usuario) {
+    
+            $link = abrirConexion();
+    
+            $result = consultarBD("SELECT * FROM usuarios WHERE nombre = '$usuario'", $link);
+    
+            while ($fila = extraerResultados($result)) {
+                
+                $musico = new Usuario($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7]);
+
+            }
+    
+            cerrarConexion($link);
+
+            return $musico;
+        }
+
         public function comprobarUsuario($usuario) {
 
             $link = abrirConexion();

@@ -9,6 +9,15 @@
              return $todosLosMusicos;
         }
 
+        public function obtenerMusico($musico) {
+            include_once (dirname(__FILE__).'./../model/UsuariosM.php');
+            $modeloMusicos = new MusicosModel();
+            
+            $musico = $modeloMusicos->obtenerMusico($musico);
+
+             return $musico;
+        }
+
         public function comprobarUsuario($nombre) {
             include_once (dirname(__FILE__).'./../model/UsuariosM.php');
             $modeloMusicos = new MusicosModel();

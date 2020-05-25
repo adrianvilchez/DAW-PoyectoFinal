@@ -1,3 +1,11 @@
+<?php
+    $controladorUsuario = new UsuariosController();
+
+    $usuario = $_SESSION['usuario'];
+    
+    $obtenerUsuario = $controladorUsuario->obtenerMusico($usuario);
+?>
+
 <body>
     <div class="contenedor">
         <header>
@@ -29,7 +37,9 @@
                         </div>
                         
                         <div class="menuDesplegable">
-                            <button name="botonDesplegable" class="botonDesplegable">Menu</button>
+                            <div class="avatarPerfil">
+                                <img class="imagenPerfil" src="' . $obtenerUsuario->getAvatar() . '" alt="">
+                            </div>
                             <div id="desplegable" class="contenidoDesplegable">
                                 <a href="#">Link 1</a>
                                 <a href="#">Link 2</a>
