@@ -7,6 +7,7 @@
     --submit_bg: #1FCC44;
     --submit_hover: #40e263;
     --icon_color: #6b6b6b;
+    --tamanyo_icono: 24px;
 }
 
 html, body {
@@ -63,13 +64,13 @@ header {
 }
 
 .avatarPerfil img {
-    width: 32px;
-    height: 32px;
+    width: var(--tamanyo_icono);
+    height: var(--tamanyo_icono);
 }
 
 .divLogout img {
-    width: 32px;
-    height: 32px;
+    width: var(--tamanyo_icono);
+    height: var(--tamanyo_icono);
 }
 
 .login {
