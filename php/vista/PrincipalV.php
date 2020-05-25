@@ -17,6 +17,15 @@
         case 'Musicos':
             include (dirname(__FILE__).'./MusicosV.php');
             break;
+        case 'Profile':
+            include (dirname(__FILE__).'./PerfilV.php');
+            break;
+        case 'Requests':
+            include (dirname(__FILE__).'./PeticionesV.php');
+            break;
+        case 'MyGroups':
+            include (dirname(__FILE__).'./MisGruposV.php');
+            break;
         
         default:
             include (dirname(__FILE__).'./Main.php');

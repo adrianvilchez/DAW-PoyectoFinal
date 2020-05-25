@@ -41,9 +41,9 @@
                                 <img class="imagenPerfil" src="' . $obtenerUsuario->getAvatar() . '" alt="">
                             </div>
                             <div id="desplegable" class="contenidoDesplegable">
-                                <a href="#">Link 1</a>
-                                <a href="#">Link 2</a>
-                                <a href="#">Link 3</a>
+                                <a href="./index.php?page=Profile">Perfil</a>
+                                <a href="./index.php?page=Requests">Peticiones</a>
+                                <a href="./index.php?page=MyGroups">Mis Grupos</a>
                             </div>
                         </div>';
                         ;}
