@@ -7,6 +7,14 @@
         private $marca;
         private $modelo;
 
+        function __construct($idInstumento, $nombreInstrumento, $tipoInstrumento, $marca, $modelo) {
+            $this->idInstumento = $idInstumento;
+            $this->nombreInstrumento = $nombreInstrumento;
+            $this->tipoInstrumento = $tipoInstrumento;
+            $this->marca = $marca;
+            $this->modelo = $modelo;
+        }
+
         // Métodos:
         public function getIdInstumento() {
             return $this->idInstumento;

@@ -1,6 +1,5 @@
 <nav>
     <ul>
-
         <li <?php  if (isset($_GET['page']) && $_GET['page'] == 'News') echo 'class="activo"';?>>
             <a href="./index.php?page=News">Noticias</a>
         </li>

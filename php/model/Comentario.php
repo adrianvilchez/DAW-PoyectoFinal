@@ -7,24 +7,12 @@
         private $idUsuario;
         private $fecha;
 
-        function __construct() {
-            $a = func_get_args();
-
-            $i = func_num_args();
-
-            if (method_exists($this, $f = '__construct' . $i)) {
-
-                call_user_func_array(array($this, $f), $a);
-            }
-        }
-
-        function __construct1($idComentario, $titulo, $descripcion, $idUsuario, $fecha) {
-
-            $this->$idComentario = $idComentario;
-            $this->$titulo = $titulo;
-            $this->$descripcion = $descripcion;
-            $this->$idUsuario = $idUsuario;
-            $this->$fecha = $fecha;
+        function __construct($idComentario, $titulo, $descripcion, $idUsuario, $fecha) {
+            $this->idComentario = $idComentario;
+            $this->titulo = $titulo;
+            $this->descripcion = $descripcion;
+            $this->idUsuario = $idUsuario;
+            $this->fecha = $fecha;
         }
 
         // Métodos:

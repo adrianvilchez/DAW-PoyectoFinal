@@ -1,7 +1,6 @@
 <?php
     class UsuariosController {
         public function obtenerMusicos() {
-            //include_once('../model/UsuariosM.php');
             include_once (dirname(__FILE__).'./../model/UsuariosM.php');
             $modeloMusicos = new MusicosModel();
             
@@ -21,7 +20,6 @@
 
         // [LOGIN]
         public function comprobarUsuarioLogin($nombre, $contrasenya) {
-            //include_once('../model/UsuariosM.php');
             include_once (dirname(__FILE__).'./../model/UsuariosM.php');
             $modeloMusicos = new MusicosModel();
             
@@ -31,7 +29,6 @@
         }
 
         public function establecerUsuario($nombre) {
-            //include_once('../model/UsuariosM.php');
             include_once (dirname(__FILE__).'./../model/UsuariosM.php');
             $modeloMusicos = new MusicosModel();
             

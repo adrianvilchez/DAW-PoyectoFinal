@@ -8,8 +8,6 @@
 
             $musicos = array();
     
-            // Hacer consulta a modelo y obtener grupos - Devolver array de grupos
-    
             $link = abrirConexion();
     
             $result = consultarBD('SELECT * FROM `usuarios`', $link);
@@ -75,10 +73,6 @@
 
             cerrarConexion($link);
 
-            //$this->nombre = $usuario;
-
-            
-            
             $establecerUsuario = new Usuario(null, $usuario, null, null, null, null, null, null);
             
             return $establecerUsuario;
@@ -95,11 +89,8 @@
             $result = $stmt->get_result();
 
             cerrarConexion($link);
-
-            // Comprobamos si existe el grupo
             
             return $result;
         }
     }
-
 ?>

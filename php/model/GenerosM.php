@@ -22,7 +22,6 @@
             cerrarConexion($link);
     
             return $generos;
-    
         }
     }
 

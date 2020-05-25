@@ -8,8 +8,6 @@
 
             $grupos = array();
     
-            // Hacer consulta a modelo y obtener grupos - Devolver array de grupos
-    
             $link = abrirConexion();
     
             $result = consultarBD('SELECT * FROM `grupos`', $link);
@@ -24,7 +22,6 @@
             cerrarConexion($link);
 
             return $grupos;
-
         }
 
         public function comprobarGrupo($nombreGrupo) {
@@ -58,10 +55,7 @@
 
             cerrarConexion($link);
 
-            // Comprobamos si existe el grupo
-            
             return $result;
         }
     }
-
 ?>

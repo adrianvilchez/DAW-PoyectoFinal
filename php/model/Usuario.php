@@ -1,10 +1,6 @@
 <?php
-    // llamada normal
-    //include_once('../db/conexionBBDD.php');
-
-    // llamada desde index.php
-    include_once('php/db/conexionBBDD.php');
-    include_once('SesionUsuario.php');
+    include_once (dirname(__FILE__).'./../db/conexionBBDD.php');
+    include_once (dirname(__FILE__).'./SesionUsuario.php');
 
     class Usuario {
         // Propiedades
@@ -28,39 +24,6 @@
             $this->admin = $admin;
         }
 
-        // [LOGIN]: Métodos para comprobar si el usuario existe
-        /*public function comprobarUsuario($usuario, $contrasenya) {
-
-            $link = abrirConexion();
-
-            $stmt = $link->prepare("SELECT * FROM usuarios WHERE nombre = ? AND contrasenya = ?");
-            $stmt->bind_param("ss", $usuario, $contrasenya);
-            $stmt->execute();
-
-            $result = $stmt->get_result();
-
-            cerrarConexion($link);
-
-            if ($result->num_rows === 0) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-    
-        public function establecerUsuario($usuario) {
-
-            $link = abrirConexion();
-
-            $stmt = $link->prepare("SELECT * FROM usuarios WHERE nombre = ?");
-            $stmt->bind_param("s", $usuario);
-            $stmt->execute();
-
-            cerrarConexion($link);
-
-            $this->nombre = $usuario; 
-        }*/
-
         public function guardarUsuario() {
             $link = abrirConexion();
 
@@ -71,8 +34,6 @@
             $result = $stmt->get_result();
     
             cerrarConexion($link);
-    
-            // Comprobamos si existe el grupo
             
             return $result;
         }

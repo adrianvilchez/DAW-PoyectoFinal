@@ -1,9 +1,16 @@
 <?php
     class Poblacion {
+        
         // Propiedades
         private $idPoblacion;
         private $cp;
         private $nombreMunicipio;
+
+        function __construct($idPoblacion, $cp, $nombreMunicipio) {
+            $this->idPoblacion = $idPoblacion;
+            $this->cp = $cp;
+            $this->nombreMunicipio = $nombreMunicipio;
+        }
 
         // Métodos:
         public function getIdPoblacion() {

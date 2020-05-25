@@ -20,7 +20,6 @@
         }
         
     ?>
-    
 
     <input name="generar" type="button" value="Actualiza">
 

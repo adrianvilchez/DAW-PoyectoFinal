@@ -1,5 +1,4 @@
 <?php
-
     class SesionUsuario {
 
         public function __construct() {
@@ -16,12 +15,8 @@
         
         public function cerrarSesion() {
             error_log("cerrando sesion");
-            //session_start();
             session_unset();
             session_destroy();
         }
     }
-
-
-
 ?>
