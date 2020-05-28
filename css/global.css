@@ -75,8 +75,61 @@ header {
 
 .login {
     display: flex;
+    justify-content: right;
+    padding-right: 20px;
 }
 
+/* menu desplegable */
+/*Botón*/
+.avatarPerfil {
+    background-color: var(--input_bg);
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #24292E;
+    cursor: pointer;
+}
+  
+/*Botón hover y focus*/
+.botonDesplegable:hover, drop-buttton:hover {
+    background-color: #2EABAB;
+}
+  
+/*Posición del contenedor*/
+.menuDesplegable {
+    position: relative;
+    display: inline-block;
+}
+  
+/*submenu*/
+.contenidoDesplegable {
+    display: none;
+    position: absolute;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 30px;
+    border-radius: 5px;
+    right: 1px;
+    border: 1px solid #2c3e50;
+    background-color: #ffffff;
+}
+  
+.contenidoDesplegable a {
+    color: #2c3e50;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 12px 16px;
+    display: block;
+}
+  
+.contenidoDesplegable a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    display: block;
+}
+  
 .entrar {
     display: inline-block !important;
     margin: auto;
@@ -612,54 +665,7 @@ footer {
 
 
 
-/* menu desplegable */
-/*Botón*/
-.avatarPerfil {
-    background-color: var(--input_bg);
-    border-radius: 5px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /*Botón hover y focus*/
-  .botonDesplegable:hover, drop-buttton:hover {
-    background-color: #2EABAB;
-  }
-  
-  /*Posición del contenedor*/
-  .menuDesplegable {
-    position: relative;
-    display: inline-block;
-   }
-  
-  /*submenu*/
-  .contenidoDesplegable {
-    display: none;
-    position: absolute;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    margin-top: 25px;
-    border-radius: 5px;
-    border: 1px solid #2c3e50;
-    background-color: #ffffff;
-  }
-  
-  .contenidoDesplegable a {
-    color: #2c3e50;
-    text-decoration: none;
-    padding: 12px 16px;
-    display: block;
-  }
-  
-  .contenidoDesplegable a:hover {
-    background-color: #f1f1f1
-  }
 
-  .show {
-    display: block;
-  }
   
   
 

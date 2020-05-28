@@ -32,21 +32,27 @@
                 
                     } else {
                         echo '
-                        <div class="divLogout">
-                            <img src="./img/logout.png" alt="Salir">
+                        <div class="notificaciones">
+                            <div class="numeroNotificaciones"></div>
+
+                            <img src="./img/notificaciones.png" alt="Notificaciones">
                         </div>
-                        
+
                         <div class="menuDesplegable">
                             <div class="avatarPerfil">
-                                <img class="imagenPerfil" src="' . $obtenerUsuario->getAvatar() . '" alt="">
+                                <img class="imagenPerfil" src="' . $obtenerUsuario->getAvatar() . '" alt="Avatar">
                             </div>
                             <div id="desplegable" class="contenidoDesplegable">
                                 <a href="./index.php?page=Profile">Perfil</a>
                                 <a href="./index.php?page=Requests">Peticiones</a>
                                 <a href="./index.php?page=MyGroups">Mis Grupos</a>
                             </div>
+                        </div>
+
+                        <div class="divLogout">
+                            <img src="./img/logout.png" alt="Salir">
                         </div>';
-                        ;}
+                    }
                 ?>
             </div>
         </header>

@@ -189,7 +189,7 @@ function barSlider() {
 
 
 function init() {
-    document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
+    //document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
 
     document.querySelector(".avatarPerfil").addEventListener("click", desplegable);
 
