@@ -187,11 +187,165 @@ function barSlider() {
     }
 }
 
+function crearFormularioGrupo() {
+    
+    contenedor = document.querySelector(".crearGrupo");
+
+    
+    let interfazGrupo =
+    "<div class='grupo'>" +
+        "<div class='nombreGrupoCrearGrupo'>" +
+            "<h3 class='nombreGrupoCG'>Nombre</h3>" +
+            "<input class='nombreGrupoInput' type='text'>" +
+            "<input class='botonCrearGrupo' type='button' value='Crear Grupo'>" +
+        "</div>" +
+
+        "<div class='avatarComentarios'>" +
+            "<div class='avatarCrearGrupo'>" +
+                "<img class='avatarCrearGrupoImagen' id='avatarCrearGrupoImagen' src='' alt=''>" +
+                "<input id='cargarImagen' class='cargarImagen' type='file'>" +
+            "</div>" +
+
+            "<div class='descripcionGrupo'>" +
+                "<textarea class='descripcionCrearGrupo' name='descripcionCrearGrupo' id=''></textarea>" +
+            "</div>" +
+        "</div>" +
+
+        "<div class='datosGrupo'>" +
+            "<div class='generoGrupo'>" +
+                "<p class='selector'>Género </p>" +
+                
+                "<select class='textoGrupoCrearGrupo' name='selectGeneros' id='selectGeneros'>" +
+                    "<option class='generosCrearGrupo' value='Generos' selected>Géneros</option>" +
+                "</select>" +
+            "</div>" +
+
+            "<div class='numeroIntegrantes'>" +
+                "<p class='selector'>Integrantes </p>" +
+                "<input class='numeroIntegrantesCrearGrupo' type='text' name='localidadCrearGrupo' id=''>" +
+            "</div>" +
+
+            "<div class='cpGrupo'>" +
+                "<p class='selector'>Localidad </p>" +
+                "<input class='cpCrearGrupo' type='text' name='localidadCrearGrupo' id=''>" +
+            "</div>" +
+            
+            "<div class='grupoCompleto'>" +
+                "<p class='selector'>Estado </p>" +
+                "<select class='grupoCompletoCrearGrupo' name='selectGeneros' id='selectGeneros'>" +
+                    "<option class='estadoCrearGrupo' value='completo' selected>Completo</option>" +
+                    "<option class='estadoCrearGrupo' value='incompleto' selected>Incompleto</option>" +
+                "</select>" +
+            "</div>" + 
+        "</div>" + 
+    "</div>";
+
+    if (contenedor != null) {
+        contenedor.innerHTML = interfazGrupo;
+
+        fetch('http://localhost/DAW-ProyectoFinal/php/db/obtenerGeneros.php', {
+		method: 'GET'
+		}).then(res => {
+			res.json().then(function(data) {
+
+                console.log(data);
+                
+                select = document.querySelector("select[name='selectGeneros']");
+
+                for (i in data) {
+
+                    console.log(data[i].genero);
+                    
+                    var option = document.createElement("option");
+                    option.textContent = data[i].genero;
+                    option.value = data[i].genero;
+                    option.style.color = "#24292E";
+                    select.add(option);
+                }
+            })
+        });
+    }
+
+    let inputFile = document.getElementById('cargarImagen');
+
+    inputFile.addEventListener('change', cargarImagen, false);
+
+    document.querySelector(".botonCrearGrupo").addEventListener("click", crearGrupo);
+    
+}
+
+function crearGrupo() {
+    let imagen = document.querySelector(".cargarImagen").value;
+    let descripcion = document.querySelector(".descripcionCrearGrupo").value;
+    let genero = document.querySelector(".textoGrupoCrearGrupo").value;
+    let integrantes = document.querySelector(".numeroIntegrantesCrearGrupo").value;
+    let cp = document.querySelector(".cpCrearGrupo").value;
+
+    let estado;
+
+    if (document.querySelector(".estadoCrearGrupo").value == "completo") estado = 1
+    else estado = 0;
+
+    let nombre = document.querySelector(".nombreGrupoInput").value;
+
+    console.log(imagen + " " + descripcion + " " + genero + " " + integrantes + cp + " " + estado + " " + nombre);
+    
+
+    let data = new FormData();
+
+    //let usuario = document.querySelector(".nombreUsuario");
+
+    data.append('imagen', "img/" + imagen);
+    data.append('nombre', nombre);
+    data.append('descripcion', descripcion);
+    data.append('genero', genero);
+    data.append('integrantes', integrantes);
+    data.append('cp', cp);
+    data.append('estado', estado);
+
+    fetch('http://localhost/DAW-ProyectoFinal/php/db/crearGrupo.php', {
+        method: 'POST',
+        body: data
+    }).then(function (respuesta) {
+
+        if (respuesta.ok) {
+            
+            return respuesta.text();  
+        }
+
+    }).then(function (texto) {
+
+        location.href = 'http://localhost/DAW-ProyectoFinal/index.php?page=MyGroups';
+        // Tenemos que agregar el usuario que crea el grupo al mismo
+    });
+}
+
+
+function cargarImagen(event) {
+
+    var fileList = inputElement.files;
+    
+    console.log(fileList);
+    
+    var file = event.target.files[0];
+
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+      var img = document.getElementById('avatarCrearGrupoImagen');
+      img.src= event.target.result;
+    }
+
+    reader.readAsDataURL(file);
+  }
 
 function init() {
     //document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
 
     document.querySelector(".avatarPerfil").addEventListener("click", desplegable);
+    document.querySelector("input[name='crearGrupo']").addEventListener("click", crearFormularioGrupo);
+    
+
 
     document.querySelector('.divLogout').addEventListener('click', logOut);
 

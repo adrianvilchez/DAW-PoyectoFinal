@@ -14,13 +14,15 @@
 
         $misGrupos = $controladorGrupo->obtenerMisGrupos($_SESSION['usuario']);
 
+        echo "<div class='crearGrupo'></div>";
         if (count($misGrupos) <= 0) {
             echo "<h1>Aún no estás en ningún grupo.</h1>";
         } else {
+            echo "<div class='grupos'>";
             foreach ($misGrupos as $auxGrupo) {
                 include (dirname(__FILE__).'./componentes/ImprimirGrupos.php');
             }
-            echo "< br/>";
+            echo "</div>";
         }
 
     ?>
@@ -33,7 +35,9 @@
 
     <hr />
 
-    <input type="button" value="Crear Grupo">
+    <div class="filtradoGrupos">
 
+    </div>
 
+    <input type="button" name="crearGrupo" value="Nuevo Grupo">
 </div>
