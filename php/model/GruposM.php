@@ -4,6 +4,31 @@
 
     class GruposModel {
 
+        function obtenerMisGrupos($usuario) {
+
+            $misGrupos = array();
+    
+            $link = abrirConexion();
+    
+            $result = consultarBD("SELECT grupos.* FROM `integrantes`
+            INNER JOIN usuariosInstrumentos ON usuariosInstrumentos.idUsuarioInstrumento = integrantes.idUsuarioInstrumento
+            INNER JOIN usuarios ON usuarios.idUsuario = usuariosInstrumentos.idUsuario
+            INNER JOIN grupos ON grupos.idGrupo = integrantes.idGrupo
+            WHERE usuarios.nombre = '$usuario'", $link);
+    
+            while ($fila = extraerResultados($result)) {
+
+                $auxMisGrupo = new Grupo($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7]);
+
+                array_push($misGrupos, $auxMisGrupo);
+            }
+
+            cerrarConexion($link);
+
+            return $misGrupos;
+        }
+
+
         function obtenerGrupos() {
 
             $grupos = array();

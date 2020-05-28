@@ -1,5 +1,15 @@
 <?php
     class GruposController {
+
+        public function obtenerMisGrupos($usuario) {
+            include(dirname(__FILE__).'./../model/GruposM.php');
+            $modeloGrupos = new GruposModel();
+            
+            $misGrupos = $modeloGrupos->obtenerMisGrupos($usuario);
+
+             return $misGrupos;
+        }
+
         public function obtenerGrupos() {
             include(dirname(__FILE__).'./../model/GruposM.php');
             $modeloGrupos = new GruposModel();
