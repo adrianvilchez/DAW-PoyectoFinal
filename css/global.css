@@ -687,19 +687,32 @@ input, select {
     text-align: justify;
 }
 
-.grupoCompletoCrearGrupo, .cpCrearGrupo, .numeroIntegrantesCrearGrupo {
-    width: 20px;
-    margin-left: 5px;
-}
 
-.textoGrupoCrearGrupo {
-    text-align: start;
-    width: 30%;
+.generoGrupoCrearGrupo, .cpCrearGrupo, .numeroIntegrantesCrearGrupo {
+    width: 20px;
     margin-left: 5px;
     color: #24292E;
 }
 
-option, input*, textarea {
+.grupoCompletoCrearGrupo  {
+    width: 100px;
+    margin-left: 5px;
+    margin-right: 25px;
+    color: #24292E;
+}
+
+.grupoCompletoCrearGrupo * {
+    color: #24292E;
+}
+
+.generoGrupoCrearGrupo {
+    text-align: start;
+    width: 50%;
+    margin-left: 5px;
+    color: #24292E;
+}
+
+.generoGrupoCrearGrupo * {
     color: #24292E;
 }
 

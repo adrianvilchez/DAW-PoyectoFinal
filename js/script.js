@@ -215,7 +215,7 @@ function crearFormularioGrupo() {
             "<div class='generoGrupo'>" +
                 "<p class='selector'>Género </p>" +
                 
-                "<select class='textoGrupoCrearGrupo' name='selectGeneros' id='selectGeneros'>" +
+                "<select class='generoGrupoCrearGrupo' name='selectGeneros' id='selectGeneros'>" +
                     "<option class='generosCrearGrupo' value='Generos' selected>Géneros</option>" +
                 "</select>" +
             "</div>" +
@@ -277,7 +277,7 @@ function crearFormularioGrupo() {
 function crearGrupo() {
     let imagen = document.querySelector(".cargarImagen").value;
     let descripcion = document.querySelector(".descripcionCrearGrupo").value;
-    let genero = document.querySelector(".textoGrupoCrearGrupo").value;
+    let genero = document.querySelector(".generoGrupoCrearGrupo").value;
     let integrantes = document.querySelector(".numeroIntegrantesCrearGrupo").value;
     let cp = document.querySelector(".cpCrearGrupo").value;
 
@@ -322,10 +322,6 @@ function crearGrupo() {
 
 
 function cargarImagen(event) {
-
-    var fileList = inputElement.files;
-    
-    console.log(fileList);
     
     var file = event.target.files[0];
 
@@ -343,11 +339,19 @@ function init() {
     //document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
 
     document.querySelector(".avatarPerfil").addEventListener("click", desplegable);
-    document.querySelector("input[name='crearGrupo']").addEventListener("click", crearFormularioGrupo);
     
-
-
     document.querySelector('.divLogout').addEventListener('click', logOut);
+
+    let divBoton = document.getElementById('rightContainer');
+
+    // Comprobamos si el elemento está en el DOM
+    if (typeof(document.querySelector("input[name='crearGrupo']")) != 'undefined'
+        && document.querySelector("input[name='crearGrupo']") != null) {
+
+        if (document.body.contains(divBoton)) {
+            document.querySelector("input[name='crearGrupo']").addEventListener("click", crearFormularioGrupo);
+        }
+    }
 
     // Comprobamos la url en la que nos encontramos, si es en 'Grupos' o 'Musicos', cargamos la función
     let URLactual = window.location.toString();
