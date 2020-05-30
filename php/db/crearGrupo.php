@@ -1,10 +1,7 @@
 <?php
+    include_once(dirname(__FILE__).'./../controller/GruposC.php');
 
-
-    include_once(dirname(__FILE__).'./../db/conexionBBDD.php');
-    include_once(dirname(__FILE__).'./../model/Grupo.php');
-
-    $link = abrirConexion();
+    $controladorGrupo = new GruposController();
 
     $idGrupo = null;
     $avatarGrupo = $_POST['imagen'];
@@ -15,14 +12,5 @@
     $cp = $_POST['cp'];
     $estaCompleto = $_POST['estado'];
 
-
-    $stmt = $link->prepare("INSERT INTO grupos (idGrupo, nombreGrupo, generoGrupo, descripcion, numeroIntegrantes, cp, avatarGrupo, estaCompleto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("isssiiii", $idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $avatarGrupo, $estaCompleto);
-    $stmt->execute();
-
-    $result = $stmt->get_result();
-
-    cerrarConexion($link);
-
-    return $result;
+    $controladorGrupo->crearGrupo($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $avatarGrupo, $estaCompleto);
 ?>

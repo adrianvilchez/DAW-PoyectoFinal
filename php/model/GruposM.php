@@ -68,11 +68,11 @@
             }
         }
 
-        public function crearGrupo($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $estaCompleto) {
+        public function crearGrupo($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $avatarGrupo, $estaCompleto) {
 
             $link = abrirConexion();
 
-            $stmt = $link->prepare("INSERT INTO grupos (idGrupo, nombreGrupo, generoGrupo, descripcion, numeroIntegrantes, cp, avatarGrupo, staCompleto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $link->prepare("INSERT INTO grupos (idGrupo, nombreGrupo, generoGrupo, descripcion, numeroIntegrantes, cp, avatarGrupo, estaCompleto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("isssiiii", $idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $avatarGrupo, $estaCompleto);
             $stmt->execute();
 
