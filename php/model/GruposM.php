@@ -14,7 +14,7 @@
             INNER JOIN usuariosInstrumentos ON usuariosInstrumentos.idUsuarioInstrumento = integrantes.idUsuarioInstrumento
             INNER JOIN usuarios ON usuarios.idUsuario = usuariosInstrumentos.idUsuario
             INNER JOIN grupos ON grupos.idGrupo = integrantes.idGrupo
-            WHERE usuarios.nombre = '$usuario'", $link);
+            WHERE usuarios.nombre = '$usuario' ORDER BY grupos.idGrupo DESC", $link);
     
             while ($fila = extraerResultados($result)) {
 
@@ -97,5 +97,12 @@
 
             return $grupo;
         }
+
+        // consulta para obtener los usuarios de un grupo
+        /*SELECT usuarios.* FROM `integrantes`
+            INNER JOIN usuariosInstrumentos ON usuariosInstrumentos.idUsuarioInstrumento = integrantes.idUsuarioInstrumento
+            INNER JOIN usuarios ON usuarios.idUsuario = usuariosInstrumentos.idUsuario
+            INNER JOIN grupos ON grupos.idGrupo = integrantes.idGrupo
+            WHERE grupos.idGrupo = 3;*/
     }
 ?>
