@@ -82,5 +82,20 @@
 
             return $result;
         }
+
+        function obtenerGrupoPorNombre($nombreGrupo) {
+    
+            $link = abrirConexion();
+
+            $result = consultarBD("SELECT * FROM grupos WHERE nombreGrupo = '$nombreGrupo'", $link);
+    
+            while ($fila = extraerResultados($result)) {
+                $grupo = new Grupo($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7]);
+            }
+    
+            cerrarConexion($link);
+
+            return $grupo;
+        }
     }
 ?>

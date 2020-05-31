@@ -7,7 +7,7 @@
             
             $misGrupos = $modeloGrupos->obtenerMisGrupos($usuario);
 
-             return $misGrupos;
+            return $misGrupos;
         }
 
         public function obtenerGrupos() {
@@ -16,7 +16,7 @@
             
             $todosLosGrupos = $modeloGrupos->obtenerGrupos();
 
-             return $todosLosGrupos;
+            return $todosLosGrupos;
         }
 
         public function crearGrupo($idGrupo, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $avatarGrupo, $estaCompleto) {
@@ -25,7 +25,7 @@
             
             $crearGrupo = $modeloGrupos->crearGrupo(null, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $avatarGrupo, $estaCompleto);
 
-             return $crearGrupo;
+            return $crearGrupo;
         }
 
         public function comprobarGrupo($nombreGrupo) {
@@ -34,7 +34,16 @@
             
             $comprobarGrupo = $modeloGrupos->comprobarGrupo($nombreGrupo);
 
-             return $comprobarGrupo;
+            return $comprobarGrupo;
+        }
+
+        public function obtenerGrupoPorNombre($nombreGrupo) {
+            include(dirname(__FILE__).'./../model/GruposM.php');
+            $modeloGrupos = new GruposModel();
+            
+            $grupoPorNombre = $modeloGrupos->obtenerGrupoPorNombre($nombreGrupo);
+
+            return $grupoPorNombre;
         }
     }
 ?>

@@ -17,7 +17,7 @@
         }
 
         public function setIdGenero($idGenero) {
-            $this->idPoblaidGenerocion = $idGenero;
+            $this->idGenero = $idGenero;
         }
 
         public function getGenero() {
