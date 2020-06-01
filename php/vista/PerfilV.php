@@ -17,7 +17,7 @@
 
             <div class="nombrePerfil">
                 <?php echo "<p>Nombre:</p>" ?>
-                <input type="text" name="" value="<?php echo $datosPerfil->getNombre()?>" id="" disabled>
+                <input type="text" name="nombrePerfil" value="<?php echo $datosPerfil->getNombre()?>" id="" disabled>
             </div>
 
             <div class="contrasenyaPerfil">
@@ -28,17 +28,17 @@
 
             <div class="emailPerfil">
                 <?php echo "<p>Email:</p>" ?>
-                <input type="email" name="mod" value="<?php echo $datosPerfil->getEmail()?>"  id="" disabled>
+                <input class="auxEmail" type="email" name="mod" value="<?php echo $datosPerfil->getEmail()?>"  id="" disabled>
             </div>
 
             <div class="telefonoPerfil">
                 <?php echo "<p>Teléfono:</p>" ?>
-                <input type="text" name="mod" value="<?php echo $datosPerfil->getTelefono()?>"  id="" disabled>
+                <input class="auxTel" type="text" name="mod" value="<?php echo $datosPerfil->getTelefono()?>"  id="" disabled>
             </div>
 
             <div class="cpPerfil">
                 <?php echo "<p>Cp:</p>" ?>
-                <input type="text" name="mod" value="<?php echo $datosPerfil->getCp()?>"  id="" disabled>
+                <input class="auxCp" type="text" name="mod" value="<?php echo $datosPerfil->getCp()?>"  id="" disabled>
             </div>
 
             <div class="instrumentosPerfil">

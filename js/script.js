@@ -366,6 +366,46 @@ function cargarImagen(event) {
     reader.readAsDataURL(file);
   }
 
+  function cargarPerfil() {
+
+    let nombre = document.querySelector("input[name='nombrePerfil']").value;
+    let auxPass = document.querySelector(".auxPass").value;
+    let auxEmail = document.querySelector(".auxEmail").value;
+    let auxTel = document.querySelector(".auxTel").value;
+    let auxCp = document.querySelector(".auxCp").value;
+
+
+    
+
+    let data = new FormData();
+
+    console.log(nombre);
+    console.log(auxPass);
+    console.log(auxEmail);
+    console.log(auxTel);
+    console.log(auxCp);
+    
+
+    data.append('usuario', nombre);
+    data.append('auxPass', auxPass);
+    data.append('auxEmail', auxEmail);
+    data.append('auxTel', auxTel);
+    data.append('auxCp', auxCp);
+
+    fetch('http://localhost/DAW-ProyectoFinal/php/db/actualizarPerfil.php', {
+        method: 'POST',
+        body: data
+    }).then(function (respuesta) {
+        if (respuesta.ok) return respuesta.text();  
+
+    }).then(function (texto) {
+
+        console.log(texto);
+
+        //location.href = 'http://localhost/DAW-ProyectoFinal/index.php?page=MyGroups';
+    })
+  }
+
   function guardarPerfil() {
     document.querySelector(".cargarImagen").style.display = "none";
 
@@ -383,6 +423,8 @@ function cargarImagen(event) {
     boton.value = "Modificar Perfil";
       
     console.log("guardamos el perfil");
+
+    cargarPerfil();
       
   }
 

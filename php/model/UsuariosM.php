@@ -4,6 +4,20 @@
 
     class MusicosModel {
 
+        public function actualizarPerfil($contrasenya, $cp, $email, $telefono, $usuario) {
+            $link = abrirConexion();
+
+            $stmt = $link->prepare("UPDATE usuarios SET contrasenya=?, cp=?, email=?, telefono=? WHERE nombre='$usuario'");
+
+            $stmt->bind_param('sisi', $contrasenya, $cp, $email, $telefono);
+            $stmt->execute();
+
+            if ($stmt->error) echo "FAILURE!!! " . $stmt->error;
+            else echo "Updated {$stmt->affected_rows} rows";
+    
+            cerrarConexion($link);
+        }
+
         public function obtenerMusicos() {
 
             $musicos = array();

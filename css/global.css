@@ -748,7 +748,6 @@ input, select {
 .perfilUsuario {
     width: 98%;
 
-    margin: 0 auto;
     margin-top: 5%;
 
     display: grid;
@@ -757,11 +756,11 @@ input, select {
 }
 
 .tituloPerfil {
-
     background-color:  #24292E;
     color: var(--input_bg);
     height: 80px;
     margin: 0 auto;
+
 }
 
 .tituloPerfil h1 {
@@ -772,7 +771,6 @@ input, select {
 .avatarPerfilUsuario {
 
     display: grid;
-
     grid-template-rows: 5fr 1fr;
     width: 100%;
     height: 70%;
@@ -792,7 +790,7 @@ input, select {
 }
 
 .cargarImagen {
-    
+
 }
 
 .datosPerfil input, .datosPerfil select {
@@ -820,6 +818,7 @@ input, select {
     
     text-align: center;
     margin-left: 50px;
+    
 }
 
 .contrasenyaPerfil input[name='mod'] {
@@ -835,6 +834,8 @@ input, select {
     
     border: 1px solid #e1e4e8 !important;
     padding: 3px;
+
+    width: 100px;
 }
 
 #botonModificarPerfil {
@@ -858,7 +859,7 @@ footer {
     grid-area: foot;
     position: relative;
     width: 100%;
-    height: 10vh;
+    height: 12vh;
     z-index: 0;
     background: #24292E;
     color: white;

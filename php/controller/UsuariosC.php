@@ -1,5 +1,14 @@
 <?php
     class UsuariosController {
+        public function actualizarPerfil($contrasenya, $cp, $email, $telefono, $usuario) {
+            include_once (dirname(__FILE__).'./../model/UsuariosM.php');
+            $modeloMusicos = new MusicosModel();
+            
+            $actualizarPerfil = $modeloMusicos->actualizarPerfil($contrasenya, $cp, $email, $telefono, $usuario);
+
+            return $actualizarPerfil;
+        }
+
         public function obtenerMusicos() {
             include_once (dirname(__FILE__).'./../model/UsuariosM.php');
             $modeloMusicos = new MusicosModel();
