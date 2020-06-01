@@ -4,7 +4,7 @@
 
     class MusicosModel {
 
-        function obtenerMusicos() {
+        public function obtenerMusicos() {
 
             $musicos = array();
     
@@ -24,7 +24,7 @@
             return $musicos;
         }
 
-        function obtenerMusico($usuario) {
+        public function obtenerMusico($usuario) {
     
             $link = abrirConexion();
     

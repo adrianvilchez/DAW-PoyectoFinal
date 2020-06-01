@@ -1,8 +1,6 @@
 <?php
     include (dirname(__FILE__).'./componentes/Top.php');
     include (dirname(__FILE__).'./componentes/Header.php');
-
-    $usuarioController = new UsuariosController();
     
     if (isset($_GET['page'])) {
         $page = $_GET['page'];

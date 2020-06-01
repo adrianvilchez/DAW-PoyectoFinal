@@ -743,6 +743,115 @@ input, select {
 
 }
 
+/* PerfilV.php */
+
+.perfilUsuario {
+    width: 98%;
+
+    margin: 0 auto;
+    margin-top: 5%;
+
+    display: grid;
+
+    grid-template-columns: 4fr 1fr;
+}
+
+.tituloPerfil {
+
+    background-color:  #24292E;
+    color: var(--input_bg);
+    height: 80px;
+    margin: 0 auto;
+}
+
+.tituloPerfil h1 {
+    text-align: center;
+    color: var(--input_bg);
+}
+
+.avatarPerfilUsuario {
+
+    display: grid;
+
+    grid-template-rows: 5fr 1fr;
+    width: 100%;
+    height: 70%;
+
+    min-width: 100px;
+    min-height: 200px;
+    
+}
+
+.avatarPerfilUsuario img {
+    width: 100%;
+    height: 90%;
+
+    border-radius: 3px;
+
+    border: 1px solid #24292E !important;
+}
+
+.cargarImagen {
+    
+}
+
+.datosPerfil input, .datosPerfil select {
+    height: 30px;
+    margin-top: 13px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.nombrePerfil, .cpPerfil, .emailPerfil, .telefonoPerfil, .instrumentosPerfil {
+    display: grid;
+
+    grid-template-columns: 1fr 8fr;
+
+    text-align: center;
+    margin-left: 50px;
+}
+
+.contrasenyaPerfil {
+
+    display: grid;
+
+    grid-template-columns: 1fr 7fr 1fr;
+
+    
+    text-align: center;
+    margin-left: 50px;
+}
+
+.contrasenyaPerfil input[name='mod'] {
+    margin-right: 0;
+}
+
+.contrasenyaPerfil input[type='button']{
+    width: 60px !important;
+}
+
+.nombrePerfil p, .contrasenyaPerfil p, .cpPerfil p, .emailPerfil p, .telefonoPerfil p, .instrumentosPerfil p {
+    border-radius: 3px !important;
+    
+    border: 1px solid #e1e4e8 !important;
+    padding: 3px;
+}
+
+#botonModificarPerfil {
+    width: 500px;
+    height: 40px;
+
+    border-radius: 3px !important;
+    
+    border: 1px solid #24292E !important;
+    padding: 3px;
+    justify-content: right;
+    justify-items: right;
+    justify-self: right ;
+}
+
+
+
 /* FIN Grupos */
   
 footer {

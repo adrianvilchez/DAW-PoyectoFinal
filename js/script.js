@@ -366,6 +366,68 @@ function cargarImagen(event) {
     reader.readAsDataURL(file);
   }
 
+  function guardarPerfil() {
+    document.querySelector(".cargarImagen").style.display = "none";
+
+    let inputs = document.querySelectorAll("input[name='mod']");
+
+    inputs.forEach(input => {
+        input.disabled = true;
+    });
+
+    let boton = document.getElementById("botonModificarPerfil");
+
+    boton.classList.remove("modificarPerfil");
+    boton.removeEventListener("click", guardarPerfil);
+    boton.addEventListener("click", modificarPerfil);
+    boton.value = "Modificar Perfil";
+      
+    console.log("guardamos el perfil");
+      
+  }
+
+  function modificarPerfil() {
+
+    document.querySelector(".cargarImagen").style.display = "block";
+
+    let inputs = document.querySelectorAll("input[name='mod']");
+
+    inputs.forEach(input => {
+        input.disabled = false;
+    });
+
+    let boton = document.getElementById("botonModificarPerfil");
+
+    boton.classList.add("modificarPerfil");
+    boton.removeEventListener("click", modificarPerfil);
+    document.querySelector(".modificarPerfil").addEventListener("click", guardarPerfil);
+    boton.value = "Guardar Perfil";
+  }
+
+  function verContrasenya() {
+    let boton = document.getElementById("verConstrasenya");
+    let input = document.querySelector(".auxPass");
+
+    input.type = 'text';
+
+    boton.classList.remove("verConstrasenya");
+    boton.removeEventListener("click", verContrasenya);
+    boton.addEventListener("click", ocultarContrasenya);
+    boton.value = "Ocultar";  
+  }
+
+  function ocultarContrasenya() {
+    let boton = document.getElementById("verConstrasenya");
+    let input = document.querySelector(".auxPass");
+
+    input.type = 'password';
+
+    boton.classList.add("verConstrasenya");
+    boton.removeEventListener("click", ocultarContrasenya);
+    document.querySelector(".verConstrasenya").addEventListener("click", verContrasenya);
+    boton.value = "Ver";
+  }
+
 function init() {
     //document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
 
@@ -391,6 +453,21 @@ function init() {
         barSlider();
     }
 
+    if (URLactual.includes('?page=Profile')/* || URLactual.includes('?page=Musicos')*/) {
+        let main = document.querySelector("main");
+        main.style.display = "block";
+        main.style.height = "81.7vh";
+
+        document.querySelector(".cargarImagen").style.display = "none";
+
+        let boton = document.querySelector("#botonModificarPerfil");
+
+        boton.addEventListener("click", modificarPerfil);
+
+        let mostrarContrasenya = document.querySelector("#verConstrasenya");
+
+        mostrarContrasenya.addEventListener("click", verContrasenya);
+    }
 }
 
 window.onload = init;
