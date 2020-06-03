@@ -1,6 +1,8 @@
 <?php
 
+    include (dirname(__FILE__).'./../controller/InstrumentosC.php');
     $usuarioController = new UsuariosController();
+    $instrumentoController = new InstrumentosController();
 
     $datosPerfil = $usuarioController->obtenerMusico($_SESSION['usuario']);
 ?>
@@ -44,6 +46,14 @@
             <div class="instrumentosPerfil">
                 <?php echo "<p>Instrumentos:</p>" ?>
                 <select name="instrumentosPerfil" id="instrumentosPerfil">
+                    <?php
+
+                        $instrumentos = $instrumentoController->obtenerInstrumentosUsuario($_SESSION['usuario']);
+
+                        foreach ($instrumentos as $instrumento) {
+                            echo "<option value=". $instrumento->getNombreInstrumento() .">" . $instrumento->getNombreInstrumento() . "</option>";
+                        }
+                    ?>
                     
                 </select>
             </div>

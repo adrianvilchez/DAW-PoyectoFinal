@@ -104,5 +104,11 @@
             INNER JOIN usuarios ON usuarios.idUsuario = usuariosInstrumentos.idUsuario
             INNER JOIN grupos ON grupos.idGrupo = integrantes.idGrupo
             WHERE grupos.idGrupo = 3;*/
+
+        // consulta para obtener los instrumentos de cada usuario
+        /*SELECT DISTINCT instrumentos.nombreInstrumento FROM `instrumentos`
+        INNER JOIN usuariosInstrumentos ON usuariosInstrumentos.idInstumento = instrumentos.idInstumento
+        INNER JOIN usuarios ON usuarios.idUsuario = usuariosInstrumentos.idUsuario
+        WHERE usuarios.nombre = "adrian" */
     }
 ?>

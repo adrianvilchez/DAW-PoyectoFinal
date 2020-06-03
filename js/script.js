@@ -244,7 +244,7 @@ function crearFormularioGrupo() {
         contenedor.innerHTML = interfazGrupo;
 
         fetch('http://localhost/DAW-ProyectoFinal/php/db/obtenerGeneros.php', {
-		method: 'GET'
+		    method: 'GET'
 		}).then(res => {
 			res.json().then(function(data) {
 
@@ -374,9 +374,6 @@ function cargarImagen(event) {
     let auxTel = document.querySelector(".auxTel").value;
     let auxCp = document.querySelector(".auxCp").value;
 
-
-    
-
     let data = new FormData();
 
     console.log(nombre);
@@ -384,7 +381,6 @@ function cargarImagen(event) {
     console.log(auxEmail);
     console.log(auxTel);
     console.log(auxCp);
-    
 
     data.append('usuario', nombre);
     data.append('auxPass', auxPass);
@@ -402,7 +398,6 @@ function cargarImagen(event) {
 
         console.log(texto);
 
-        //location.href = 'http://localhost/DAW-ProyectoFinal/index.php?page=MyGroups';
     })
   }
 
@@ -424,6 +419,8 @@ function cargarImagen(event) {
       
     console.log("guardamos el perfil");
 
+    document.querySelector(".selectInstrumentos").remove();
+
     cargarPerfil();
       
   }
@@ -438,12 +435,109 @@ function cargarImagen(event) {
         input.disabled = false;
     });
 
+    opcionesIntrumentos();
+
     let boton = document.getElementById("botonModificarPerfil");
 
     boton.classList.add("modificarPerfil");
     boton.removeEventListener("click", modificarPerfil);
     document.querySelector(".modificarPerfil").addEventListener("click", guardarPerfil);
     boton.value = "Guardar Perfil";
+  }
+
+  function anyadirInstrumentos() {
+
+    console.log("el ide del usuario es: " + idUsuarioInsertarInstrumento);
+    
+
+    let idInstrumento = document.querySelector(".crearInstrumentosPerfil").value;
+
+    let options = document.querySelectorAll("option");
+
+    let dataInstrumento;
+
+    options.forEach(opcion => {
+
+        if (idInstrumento == opcion.value) {
+            dataInstrumento = opcion.getAttribute("data-id-instrumento");
+
+            textOptionFake = opcion.getAttribute("data-nombre-instrumento");
+
+        
+            let padre = document.querySelector("#instrumentosPerfil");
+        
+            let optionFake = document.createElement("option");
+            optionFake.textContent = textOptionFake;
+
+            console.log(textOptionFake);
+            
+        
+            padre.appendChild(optionFake);
+        }
+    });
+
+    let data = new FormData();
+
+    //data.append('nombreInstrumento');
+    data.append('idUsuario', idUsuarioInsertarInstrumento);
+    data.append('idInstrumento', dataInstrumento);
+
+    console.log("el usuario es: " + idUsuarioInsertarInstrumento + " y el instrumento es: " + dataInstrumento);
+    
+    fetch('http://localhost/DAW-ProyectoFinal/php/db/insertarInstrumento.php', {
+        method: 'POST',
+        body: data
+    }).then(function (respuesta) {
+        if (respuesta.ok) return respuesta.text();  
+
+    }).then(function (texto) {
+
+        console.log(texto);
+        
+    });
+    
+  }
+
+  var idUsuarioInsertarInstrumento;
+
+  function opcionesIntrumentos() {
+    let selectNuevoInstrumento =
+    "<select class='crearInstrumentosPerfil' name='selectGeneros' id='selectInstrumentos'>" +
+    "</select>" +
+    "<input class='botonInstrumentos' value='Añadir instrumento' type='button' name='botonInstrumentos' id=''>";
+
+    var nuevoSelect = document.createElement("div");
+    nuevoSelect.className = "selectInstrumentos";
+
+    let padre = document.querySelector(".instrumentosPerfil").parentNode;
+
+    let instrumentosPerfil = document.querySelector("#botonModificarPerfil");
+
+    padre.insertBefore(nuevoSelect, instrumentosPerfil);
+
+    nuevoSelect.innerHTML = selectNuevoInstrumento;
+
+    document.querySelector(".botonInstrumentos").addEventListener("click", anyadirInstrumentos);
+
+    fetch('http://localhost/DAW-ProyectoFinal/php/db/obtenerInstrumentos.php', {
+        method: 'GET'
+    }).then(res => {
+        res.json().then(function(data) {
+
+            let select = document.getElementById("selectInstrumentos");
+
+            console.log(data);
+            idUsuarioInsertarInstrumento = data[0].idUsuario;
+
+            data.forEach(instrumento => {
+                let option = document.createElement("option");
+                option.textContent = instrumento.nombreInstrumento;
+                option.dataset.idInstrumento = instrumento.idInstrumento;
+                option.dataset.nombreInstrumento = instrumento.nombreInstrumento;
+                select.appendChild(option);
+            });
+        })
+    });
   }
 
   function verContrasenya() {
