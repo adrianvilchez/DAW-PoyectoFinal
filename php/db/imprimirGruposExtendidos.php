@@ -1,5 +1,27 @@
 <?php 
-    echo "<div class='grupo' data-id-grupo='" . $auxGrupo->getNombreGrupo() . "'>
+    include (dirname(__FILE__).'./../controller/GruposC.php');
+
+    $controladorGrupo = new GruposController();
+
+    $nombreGrupo = $_POST['nombreGrupo'];
+    
+    $grupo = $controladorGrupo->obtenerGrupoPorNombre($nombreGrupo);
+
+    echo "
+        <div class='nombreVG'>
+            <h1>Grupo</h1>
+            <div class='cruceta'>
+                X 
+            </div>
+        </div>
+
+        <div class='generoLocalidadVG'>
+            <p class='selectorVG'>Genero</p>
+            <p class='textoGrupo'>" . $grupo->getGeneroGrupo() . "</p>
+        </div>";
+
+
+    /*echo "<div class='grupo' data-id-grupo='" . $auxGrupo->getNombreGrupo() . "'>
             <div class='nombreGrupo'>
                 <h3>" . $auxGrupo->getNombreGrupo() . "</h3>
             </div>";
@@ -25,7 +47,7 @@
                         <p class='textoGrupo'>" . $auxGrupo->getGeneroGrupo() . "</p>
                     </div>
 
-                    <div class='verGrupo' data-id-grupo='" . $auxGrupo->getNombreGrupo() . "'>
+                    <div class='verGrupo'>
                         <p class='selector'>Ver Grupo</p>
                     </div>
 
@@ -51,5 +73,5 @@
                     </div>";
             }
             echo "</div>
-            </div>";
+            </div>";*/
 ?>

@@ -565,6 +565,9 @@ function cargarImagen(event) {
   }
 
   function verGrupo() {
+
+        let nombreGrupo = event.target.parentNode.getAttribute("data-id-grupo");
+    
         let divVerGrupo = document.createElement("div");
 
         divVerGrupo.className = "vistaGrupo"
@@ -572,13 +575,9 @@ function cargarImagen(event) {
         if (!document.body.contains(document.querySelector(".vistaGrupo"))) {
             document.querySelector("main").appendChild(divVerGrupo);
 
-            let cerrar = document.createElement("div");
-            cerrar.className = "cruceta";
-            cerrar.textContent = "X";
-
             //divVerGrupo.appendChild(cerrar);
 
-            let contenidoVista = 
+            /*let contenidoVista = 
                 "<div class='nombreVG'>" +
                     "<h1>Grupo</h1>" +
                     "<div class='cruceta'>" +
@@ -588,9 +587,9 @@ function cargarImagen(event) {
 
                 "<div class='generoLocalidadVG'>" +
                     "<p class='selectorVG'>Genero</p>" +
-                "</div>";
+                "</div>";*/
 
-            divVerGrupo.innerHTML += contenidoVista;
+            /*divVerGrupo.innerHTML += contenidoVista;
 
             let cruceta = document.querySelector(".cruceta");
 
@@ -598,7 +597,37 @@ function cargarImagen(event) {
 
             cruceta.addEventListener("click", function() {
                 vistaGrupo.remove();
-            }, false);
+            }, false);*/
+
+
+
+            let data = new FormData();
+
+            data.append("nombreGrupo", nombreGrupo);
+
+            fetch('http://localhost/DAW-ProyectoFinal/php/db/imprimirGruposExtendidos.php', {
+                method: 'POST',
+                body: data
+            }).then(function (respuesta) {
+                if (respuesta.ok) return respuesta.text();  
+
+            }).then(function (texto) {
+
+                console.log(texto);
+
+                divVerGrupo.innerHTML += texto;
+
+                let cruceta = document.querySelector(".cruceta");
+    
+                let vistaGrupo = document.querySelector(".vistaGrupo");
+    
+                cruceta.addEventListener("click", function() {
+                    vistaGrupo.remove();
+                }, false);
+                
+            });
+
+
         }
 
       
