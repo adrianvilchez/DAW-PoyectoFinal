@@ -1,5 +1,5 @@
 <?php 
-    echo "<div class='grupo'>
+    echo "<div class='grupo' data-id-grupo='" . $auxGrupo->getNombreGrupo() . "'>
             <div class='nombreGrupo'>
                 <h3>" . $auxGrupo->getNombreGrupo() . "</h3>
             </div>";
@@ -24,6 +24,11 @@
                         <p class='selector'>Género </p>
                         <p class='textoGrupo'>" . $auxGrupo->getGeneroGrupo() . "</p>
                     </div>
+
+                    <div class='verGrupo'>
+                        <p class='selector'>Ver Grupo</p>
+                    </div>
+
                     <div class='numeroIntegrantes'>
                         <p class='selector'>Integrantes </p>
                         <p>" . $auxGrupo->getNumeroIntegrantes() . "</p>
