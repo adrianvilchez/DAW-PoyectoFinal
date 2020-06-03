@@ -564,6 +564,46 @@ function cargarImagen(event) {
     boton.value = "Ver";
   }
 
+  function verGrupo() {
+        let divVerGrupo = document.createElement("div");
+
+        divVerGrupo.className = "vistaGrupo"
+
+        if (!document.body.contains(document.querySelector(".vistaGrupo"))) {
+            document.querySelector("main").appendChild(divVerGrupo);
+
+            let cerrar = document.createElement("div");
+            cerrar.className = "cruceta";
+            cerrar.textContent = "X";
+
+            //divVerGrupo.appendChild(cerrar);
+
+            let contenidoVista = 
+                "<div class='nombreVG'>" +
+                    "<h1>Grupo</h1>" +
+                    "<div class='cruceta'>" +
+                    "X" +
+                    "</div>" +
+                "</div>" +
+
+                "<div class='generoLocalidadVG'>" +
+                    "<p class='selectorVG'>Genero</p>" +
+                "</div>";
+
+            divVerGrupo.innerHTML += contenidoVista;
+
+            let cruceta = document.querySelector(".cruceta");
+
+            let vistaGrupo = document.querySelector(".vistaGrupo");
+
+            cruceta.addEventListener("click", function() {
+                vistaGrupo.remove();
+            }, false);
+        }
+
+      
+  }
+
 function init() {
     //document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
 
@@ -585,8 +625,13 @@ function init() {
     // Comprobamos la url en la que nos encontramos, si es en 'Grupos' o 'Musicos', cargamos la función
     let URLactual = window.location.toString();
 
-    if (URLactual.includes('?page=Grupos')/* || URLactual.includes('?page=Musicos')*/) {
+    if (URLactual.includes('?page=Grupos') || URLactual.includes('?page=MyGroups')) {
         barSlider();
+
+        document.querySelectorAll(".verGrupo").forEach(grupo => {
+            grupo.addEventListener("click", verGrupo);
+        });
+        
     }
 
     if (URLactual.includes('?page=Profile')/* || URLactual.includes('?page=Musicos')*/) {

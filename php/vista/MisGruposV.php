@@ -35,9 +35,9 @@
 
     <hr />
 
-    <div class="filtradoGrupos">
-
-    </div>
+    <?php
+        include (dirname(__FILE__).'./componentes/filtradoGrupos.php');
+    ?>
 
     <input type="button" name="crearGrupo" value="Nuevo Grupo">
 </div>

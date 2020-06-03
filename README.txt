@@ -4,7 +4,7 @@ TODO:
     Grupos: Implementar filtrado, y si da tiempo, hacer un scroll de carga para los grupos.
     Músicos: Implementar izterfaz con los datos del usuario y filtrado, si da tiempo un scroll de carga para los grupos.
 
-    Perfil: Implementar la carga de datos en la db.
+    Perfil: Implementar carga del avatar en la db.
     MisGrupos: Implementar filtrado, y si da tiempo, hacer un scroll de carga para los grupos.
     Peticiones: Implementar las peticiones y solicitudes de grupos (las que has hecho y las que te han hecho).
         Así mismo, añadir una alerta por cada petición. Se requiere crear una tabla en la base de datos
