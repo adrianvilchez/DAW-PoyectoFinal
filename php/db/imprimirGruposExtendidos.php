@@ -1,7 +1,11 @@
 <?php 
     include (dirname(__FILE__).'./../controller/GruposC.php');
+    include (dirname(__FILE__).'./../controller/IntegrantesC.php');
+    include (dirname(__FILE__).'./../controller/UsuariosC.php');
 
     $controladorGrupo = new GruposController();
+    $controladorIntegrante = new IntegrantesController();
+    $controladorUsuario = new UsuariosController();
 
     $nombreGrupo = $_POST['nombreGrupo'];
     
@@ -9,69 +13,71 @@
 
     echo "
         <div class='nombreVG'>
-            <h1>Grupo</h1>
+            <h1>" . $grupo->getNombreGrupo() . "</h1>
             <div class='cruceta'>
                 X 
             </div>
         </div>
 
         <div class='generoLocalidadVG'>
-            <p class='selectorVG'>Genero</p>
-            <p class='textoGrupo'>" . $grupo->getGeneroGrupo() . "</p>
-        </div>";
+            <div class='generoVG'>
+                <p class='selectorVG'>Genero</p>
+                <p class='textoGrupo'>" . $grupo->getGeneroGrupo() . "</p>
+            </div>
 
+            <div class='localidadVG'>
+                <p class='selectorVG'>Localidad</p>
+                <p class='textoGrupo'>" . $grupo->getCp() . "</p>
+            </div>
+        </div>
 
-    /*echo "<div class='grupo' data-id-grupo='" . $auxGrupo->getNombreGrupo() . "'>
-            <div class='nombreGrupo'>
-                <h3>" . $auxGrupo->getNombreGrupo() . "</h3>
-            </div>";
+        <div class='listaIntegrantesVG'>
+            <div class='integrantesTituloVG'>
+                <h3 class='selectorVG'>Integranes</h3>
+            </div>
+            
+           
+            <div class='integrantesVG'>
+                <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cp</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                   
+                </tr>";
 
-            echo "<div class='avatarComentarios'>
-                    <div class='avatarGrupo'>";
-                        echo "<img class='avatarGrupo' src='". $auxGrupo->getAvatarGrupo() . "' alt=''>
-                    </div>";
+                $integrantes = $controladorUsuario->obtenerIntegrantes($nombreGrupo);
+                //$integrantes2 = $controladorIntegrante->obtenerIntegrantes($nombreGrupo);
 
-            if ($auxGrupo->getDescripcion() == null) {
-                echo "<div class='descripcionGrupo'>
-                        <p>Este grupo no dispone de descripción.</p>
-                    </div>";
-            } else {
-                echo "<div class='descripcionGrupo'>
-                        <p>" . $auxGrupo->getDescripcion() . ".</p>
-                    </div>";
-            } 
-                
-            echo "</div><div class='datosGrupo'>
-                    <div class='generoGrupo'>
-                        <p class='selector'>Género </p>
-                        <p class='textoGrupo'>" . $auxGrupo->getGeneroGrupo() . "</p>
-                    </div>
+                foreach ($integrantes as $integrante) {
+                    echo "<div class='datosIntegranteVG'>
+                    <tr>
+                        <td class='nombreIntegranteVG'>" . $integrante->getNombre() . "</td>
+                        <td class='nombreIntegranteVG'>" . $integrante->getCp() . "</td>
+                        <td class='nombreIntegranteVG'>" . $integrante->getEmail() . "</td>
+                        <td class='nombreIntegranteVG'>" . $integrante->getTelefono() . "</td>
+                        <td class='nombreIntegranteVG'>
+                            <div class='verUsuarioVG'>
+                                <p class='selectorVG'>Ver</p>
+                            </div>
+                        </td>
+                    </tr>";
+                }
+            
+            echo "</table>
+            </div> 
+        </div>
 
-                    <div class='verGrupo'>
-                        <p class='selector'>Ver Grupo</p>
-                    </div>
+        <div class='estadoPetionVG'>
+            <div class='estadoVG'>
+                <p class='selector'>Estado</p>
+                <p class='textoGrupo'>" . ($grupo->getEstaCompleto() == 1 ? 'Completo' : 'Incompleto') . "</p>
+            </div>
 
-                    <div class='numeroIntegrantes'>
-                        <p class='selector'>Integrantes </p>
-                        <p>" . $auxGrupo->getNumeroIntegrantes() . "</p>
-                    </div>
-
-                    <div class='cpGrupo'>
-                        <p class='selector'>Localidad </p>
-                        <p>" . $auxGrupo->getCp() . "</p>
-                    </div>";
-                    
-            if ($auxGrupo->getEstaCompleto() == 1) {
-                echo "<div class='grupoCompleto'>
-                        <p class='selector'>Estado </p>
-                        <p>Completo</p>
-                    </div>";
-            } else {
-                echo "<div class='grupoCompleto'>
-                        <p class='selector'>Estado </p>
-                        <p>Incompleto</p>
-                    </div>";
-            }
-            echo "</div>
-            </div>";*/
+            <div class='enviarPeticionVG'>
+                <p class='selector " . ($grupo->getEstaCompleto() == 1 ? 'enviarPeticionDesVG' : 'enviarPeticionHabVG') . "'>Enviar Petición</p>
+            </div>
+        </div>
+    </div>";
 ?>

@@ -4,6 +4,30 @@
 
     class MusicosModel {
 
+        public function obtenerIntegrantes($nombreGrupo) {
+
+            $integrantes = array();
+    
+            $link = abrirConexion();
+    
+            $result = consultarBD("SELECT usuarios.* FROM `integrantes`
+            INNER JOIN usuariosInstrumentos ON usuariosInstrumentos.idUsuarioInstrumento = integrantes.idUsuarioInstrumento
+            INNER JOIN usuarios ON usuarios.idUsuario = usuariosInstrumentos.idUsuario
+            INNER JOIN grupos ON grupos.idGrupo = integrantes.idGrupo
+            WHERE grupos.nombreGrupo = '$nombreGrupo';", $link);
+    
+            while ($fila = extraerResultados($result)) {
+                
+                $auxUsuario = new Usuario($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7]);
+
+                array_push($integrantes, $auxUsuario);
+            }
+    
+            cerrarConexion($link);
+
+            return $integrantes;
+        }
+
         public function actualizarPerfil($contrasenya, $cp, $email, $telefono, $usuario) {
             $link = abrirConexion();
 

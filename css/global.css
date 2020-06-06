@@ -640,14 +640,15 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     top: 0;
     left: 0;
     right: 0;
-    width: 80%;
-    height: 600px;
+    width: 60%;
     margin: 0 auto;
     margin-top: 5%;
 
     background-color: var(--input_bg);
 
     border-radius: 3px;
+
+    border: 2px solid black;
 }
 
 .cruceta {
@@ -661,8 +662,17 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     border-radius: 3px;
     text-align: center;
     right: 0;
-    margin: 2px;
+    margin: 4px;
     justify-self: normal;
+}
+
+table {
+    text-align: center  ;
+}
+
+th {
+    border-bottom: 1px solid #24292E;
+    border-top: 1px solid #24292E;
 }
 
 .nombreVG {
@@ -681,13 +691,123 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     justify-self:center;
 }
 
+.verGrupo {
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.verUsuarioVG {
+    margin: 0 auto;
+    cursor: pointer;
+}
+
 .generoLocalidadVG {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.generoVG, .localidadVG {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.generoVG {
+    margin-left: 5px;
+}
+
+.listaIntegrantesVG {
+    
+}
+
+.integrantesTituloVG {
     display: flex;
+    margin: 0;
+    height: 40px;
+    margin-bottom: 5px;
+    background-color: #24292E;
 }
+
 .selectorVG {
-    color: #24292E;
-    border: 1px solid #24292E;
+    /* color: var(--input_bg); */
+    color: black;
+    border: 1px solid black;
+    border-radius: 3px;
 }
+
+.listaIntegrantesVG h3 {
+    color: var(--input_bg);
+    text-align: center;
+    align-self:center;
+    margin: 0 auto;
+    border-radius: 3px;
+    border: none;
+    padding: 2px;
+}
+
+.integrantesVG {
+    display: grid;
+    grid-template-rows: repeat(1fr);
+}
+
+.selectorVG p {
+    border: 1px solid var(--input_bg);
+    text-align: center;
+}
+
+.estadoPetionVG {
+    background-color: #24292E;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.estadoVG {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-left: 5px;
+    width: 40%;
+}
+
+.estadoVG p:first-child {
+    margin-right: 10px;
+}
+
+.estadoVG p, .enviarPeticionVG p {
+    color: var(--input_bg);
+    
+}
+
+.enviarPeticionVG {
+    display: flex;
+    justify-content: end;
+
+    margin-right: 10px;
+}
+
+.enviarPeticionDesVG {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.enviarPeticionHabVG {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.enviarPeticionVG p {
+    align-content: flex-end;
+    align-items: flex-end;
+    align-self: flex-end;
+    
+}
+
+
+
+
+
+
 
 .datosGrupo * {
     color: var(--input_bg);
@@ -704,6 +824,7 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     border: 1px solid #e1e4e8 !important;
 
     border-color: #E1E4E8;
+    padding: 2px;
 }
 
 .grupoCompleto p:last-child {

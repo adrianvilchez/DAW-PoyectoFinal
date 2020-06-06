@@ -572,8 +572,8 @@ function cargarImagen(event) {
 
         divVerGrupo.className = "vistaGrupo"
 
-        if (!document.body.contains(document.querySelector(".vistaGrupo"))) {
-            document.querySelector("main").appendChild(divVerGrupo);
+        /*if (!document.body.contains(document.querySelector(".vistaGrupo"))) {
+            document.querySelector("main").appendChild(divVerGrupo);*/
 
             //divVerGrupo.appendChild(cerrar);
 
@@ -603,6 +603,9 @@ function cargarImagen(event) {
 
             let data = new FormData();
 
+            console.log(nombreGrupo);
+            
+
             data.append("nombreGrupo", nombreGrupo);
 
             fetch('http://localhost/DAW-ProyectoFinal/php/db/imprimirGruposExtendidos.php', {
@@ -613,24 +616,26 @@ function cargarImagen(event) {
 
             }).then(function (texto) {
 
-                console.log(texto);
+                //console.log(texto);
 
-                divVerGrupo.innerHTML += texto;
+                if (!document.body.contains(document.querySelector(".vistaGrupo"))) {
+                    document.querySelector("main").appendChild(divVerGrupo);
 
-                let cruceta = document.querySelector(".cruceta");
-    
-                let vistaGrupo = document.querySelector(".vistaGrupo");
-    
-                cruceta.addEventListener("click", function() {
-                    vistaGrupo.remove();
-                }, false);
+                    divVerGrupo.innerHTML += texto;
+
+                    let cruceta = document.querySelector(".cruceta");
+        
+                    let vistaGrupo = document.querySelector(".vistaGrupo");
+        
+                    cruceta.addEventListener("click", function() {
+                        vistaGrupo.remove();
+                    }, false);
+                }
                 
             });
 
 
-        }
-
-      
+        //}
   }
 
 function init() {

@@ -1,5 +1,15 @@
 <?php
     class UsuariosController {
+
+        public function obtenerIntegrantes($nombreGrupo) {
+            include_once (dirname(__FILE__).'./../model/UsuariosM.php');
+            $modeloMusicos = new MusicosModel();
+            
+            $integrantes = $modeloMusicos->obtenerIntegrantes($nombreGrupo);
+
+            return $integrantes;
+        }
+
         public function actualizarPerfil($contrasenya, $cp, $email, $telefono, $usuario) {
             include_once (dirname(__FILE__).'./../model/UsuariosM.php');
             $modeloMusicos = new MusicosModel();
