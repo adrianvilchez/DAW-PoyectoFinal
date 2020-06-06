@@ -72,12 +72,14 @@ header {
 .divLogout img {
     width: var(--tamanyo_icono);
     height: var(--tamanyo_icono);
+    margin-left: 10px;
 }
 
 .login {
     display: flex;
     justify-content: right;
     padding-right: 20px;
+    margin-left: 5px;
 }
 
 /* menu desplegable */
@@ -225,6 +227,7 @@ li {
     text-align: center;
     color: #ffffff;
     transition: .4s;
+    margin-right: 5px;
 }
   
 
@@ -796,14 +799,6 @@ th {
     cursor: pointer;
 }
 
-.enviarPeticionVG p {
-    align-content: flex-end;
-    align-items: flex-end;
-    align-self: flex-end;
-    
-}
-
-
 
 
 
@@ -940,6 +935,7 @@ input, select {
 
 .perfilUsuario {
     width: 98%;
+    height: 100%;
 
     margin-top: 5%;
 
@@ -948,16 +944,19 @@ input, select {
     grid-template-columns: 4fr 1fr;
 }
 
+
 .tituloPerfil {
+    display: flex;
     background-color:  #24292E;
     color: var(--input_bg);
     height: 80px;
     margin: 0 auto;
+    margin-top: 15px;
 
+    justify-content: center;
 }
 
 .tituloPerfil h1 {
-    text-align: center;
     color: var(--input_bg);
 }
 
@@ -1043,8 +1042,6 @@ input, select {
     justify-items: right;
     justify-self: right ;
 }
-
-
 
 /* FIN Grupos */
   

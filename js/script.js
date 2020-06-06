@@ -671,7 +671,7 @@ function init() {
     if (URLactual.includes('?page=Profile')/* || URLactual.includes('?page=Musicos')*/) {
         let main = document.querySelector("main");
         main.style.display = "block";
-        main.style.height = "81.7vh";
+        main.style.height = "82vh";
 
         document.querySelector(".cargarImagen").style.display = "none";
 

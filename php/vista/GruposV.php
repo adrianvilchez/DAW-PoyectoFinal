@@ -6,11 +6,9 @@
 
 <div id="mainContainer">
 
-    <h1>Últimas peticiones</h1>
+    <h1>Grupos</h1>
 
     <hr />
-    
-    <input name="generar" type="button" value="Actualiza">
 
     <!-- por cada uno de los grupos que obtengo del controlador obtenerGrupos muestro el grupo -->
     <?php
