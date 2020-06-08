@@ -7,7 +7,7 @@
     --submit_bg: #1FCC44;
     --submit_hover: #40e263;
     --icon_color: #6b6b6b;
-    --tamanyo_icono: 24px;
+    --tamanyo_icono: 26px;
 }
 
 html, body {
@@ -67,13 +67,73 @@ header {
 .avatarPerfil img {
     width: var(--tamanyo_icono);
     height: var(--tamanyo_icono);
+    margin-bottom: -4px;
+    border-radius: 3px;
+    border: 2px solid var(--input_bg);
 }
 
 .divLogout img {
     width: var(--tamanyo_icono);
     height: var(--tamanyo_icono);
     margin-left: 10px;
+    cursor: pointer;
 }
+
+.notificaciones .tooltipNotificaciones {
+    visibility: hidden;
+    width: 60px;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+
+    /* Position the tooltip */
+    position: absolute;
+
+    margin-left: -60px;
+    margin-top: 35px;
+}
+
+.notificaciones:hover .tooltipNotificaciones {
+    visibility: visible;
+}
+
+.divLogout .tooltipSalir {
+    visibility: hidden;
+    width: 60px;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+
+    /* Position the tooltip */
+    position: absolute;
+
+    margin-left: -40px;
+    margin-top: 35px;
+}
+
+.divLogout:hover .tooltipSalir {
+    visibility: visible;
+}
+
+.avatarPerfil:hover .tooltipPerfil {
+    visibility: visible;
+}
+
+.avatarPerfil .tooltipPerfil {
+    visibility: hidden;
+    width: 60px;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+
+    /* Position the tooltip */
+    position: absolute;
+
+    margin-left: -40px;
+    margin-top: 35px;
+}
+
+
 
 .login {
     display: flex;

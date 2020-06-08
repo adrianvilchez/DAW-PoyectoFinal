@@ -36,11 +36,13 @@
                             <div class="numeroNotificaciones"></div>
 
                             <img src="./img/notificaciones.png" alt="Notificaciones">
+                            <span class="tooltipNotificaciones">Notificaciones</span>
                         </div>
 
                         <div class="menuDesplegable">
                             <div class="avatarPerfil">
                                 <img class="imagenPerfil" src="' . $obtenerUsuario->getAvatar() . '" alt="Avatar">
+                                <span class="tooltipPerfil">Perfil</span>
                             </div>
                             <div id="desplegable" class="contenidoDesplegable">
                                 <a href="./index.php?page=Profile">Perfil</a>
@@ -51,6 +53,7 @@
 
                         <div class="divLogout">
                             <img src="./img/logout.png" alt="Salir">
+                            <span class="tooltipSalir">Salir</span>
                         </div>';
                     }
                 ?>
