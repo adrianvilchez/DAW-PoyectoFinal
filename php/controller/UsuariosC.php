@@ -69,7 +69,7 @@
             include_once (dirname(__FILE__).'./../model/UsuariosM.php');
             $modeloMusicos = new MusicosModel();
             
-            $crearUsuario = $modeloMusicos->crearUsuario($idUsuario, $nombre, $contrasenya, null, $email, null, null, null);
+            $crearUsuario = $modeloMusicos->crearUsuario($idUsuario, $nombre, $contrasenya, null, null, $email, null, "img/default_user.png", null);
 
             return $crearUsuario;
         }

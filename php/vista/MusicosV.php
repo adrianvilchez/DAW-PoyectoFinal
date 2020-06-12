@@ -1,3 +1,8 @@
+<?php
+    $obtenerMusicos = new MusicosModel();
+
+?>
+
 <div id="mainContainer">
 
     <h1>Músicos en activo</h1>
@@ -5,24 +10,29 @@
     <hr />
 
     <!-- Muestro todos los músicos y sus instrumentos aquí -->
-    <?php
 
-        $obtenerMusicos = new MusicosModel();
+    <?php
 
         $aux = $obtenerMusicos->obtenerMusicos();
 
+        echo "<div class='musicos'>";
+
         foreach($aux as $auxMusico) {
-            echo $auxMusico->getNombre();
-
-            echo $auxMusico->getAvatar();
-
-            echo "<br/  >";
+            include (dirname(__FILE__).'./componentes/ImprimirMusicos.php');
         }
-        
+        echo "</div>";
     ?>
-
-    <input name="generar" type="button" value="Actualiza">
 
     <div class="posts">
     </div>
+</div>
+
+<div id="rightContainer">
+    <h1>Filtrado</h1>
+
+    <hr />
+
+    <?php
+        include (dirname(__FILE__).'./componentes/filtradoGrupos.php');
+    ?>
 </div>

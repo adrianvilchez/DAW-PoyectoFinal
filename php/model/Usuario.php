@@ -7,16 +7,18 @@
         private $idUsuario;
         private $nombre;
         private $contrasenya;
+        private $descripcion;
         private $cp;
         private $email;
         private $telefono;
         private $avatar;
         private $admin;
        
-        function __construct($idUsuario, $nombre, $contrasenya, $cp, $email, $telefono, $avatar,  $admin) {
+        function __construct($idUsuario, $nombre, $contrasenya, $descripcion, $cp, $email, $telefono, $avatar,  $admin) {
             $this->idUsuario = $idUsuario;
             $this->nombre = $nombre;
             $this->contrasenya = $contrasenya;
+            $this->descripcion = $descripcion;
             $this->cp = $cp;
             $this->email = $email;
             $this->telefono = $telefono;
@@ -61,6 +63,14 @@
 
         public function setContrasenya($contrasenya) {
             $this->contrasenya = $contrasenya;
+        }
+
+        public function getDescripcion() {
+            return $this->descripcion;
+        }
+
+        public function setDescripcion($descripcion) {
+            $this->descripcion = $descripcion;
         }
 
         public function getCp() {

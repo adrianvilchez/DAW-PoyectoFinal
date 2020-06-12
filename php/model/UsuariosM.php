@@ -18,7 +18,7 @@
     
             while ($fila = extraerResultados($result)) {
                 
-                $auxUsuario = new Usuario($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7]);
+                $auxUsuario = new Usuario($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7], $fila[8]);
 
                 array_push($integrantes, $auxUsuario);
             }
@@ -52,7 +52,7 @@
     
             while ($fila = extraerResultados($result)) {
                 
-                $auxUsuario = new Usuario($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7]);
+                $auxUsuario = new Usuario($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7], $fila[8]);
 
                 array_push($musicos, $auxUsuario);
             }
@@ -70,7 +70,7 @@
     
             while ($fila = extraerResultados($result)) {
                 
-                $musico = new Usuario($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7]);
+                $musico = new Usuario($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7], $fila[8]);
 
             }
     
@@ -128,17 +128,17 @@
 
             cerrarConexion($link);
 
-            $establecerUsuario = new Usuario(null, $usuario, null, null, null, null, null, null);
+            $establecerUsuario = new Usuario(null, $usuario, null, null, null, null, null, null, null);
             
             return $establecerUsuario;
         }
 
-        public function crearUsuario($idUsuario, $nombre, $contrasenya, $cp, $email, $telefono, $avatar, $admin) {
+        public function crearUsuario($idUsuario, $nombre, $contrasenya, $descripcion, $cp, $email, $telefono, $avatar, $admin) {
 
             $link = abrirConexion();
 
-            $stmt = $link->prepare("INSERT INTO usuarios (idUsuario, nombre, contrasenya, cp, email, telefono, avatar, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("issisisi", $idUsuario, $nombre, $contrasenya, $cp, $email, $telefono, $avatar, $admin);
+            $stmt = $link->prepare("INSERT INTO usuarios (idUsuario, nombre, contrasenya, descripcion, cp, email, telefono, avatar, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("isssisisi", $idUsuario, $nombre, $contrasenya, $descripcion, $cp, $email, $telefono, $avatar, $admin);
             $stmt->execute();
 
             $result = $stmt->get_result();
