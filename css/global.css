@@ -636,6 +636,15 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 }
 
 
+/* INICIO Músicos */
+
+.musicos {
+    width: 98%;
+    margin: 0 auto;
+}
+
+/* FIN Músicos */
+
 /* INICIO Grupos */
 
 .grupos {
