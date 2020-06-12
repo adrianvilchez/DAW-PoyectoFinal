@@ -1,7 +1,9 @@
-<?php 
+<?php
+    $aux = ($auxMusico->getNombre() == $_SESSION['usuario']) ? "Tú" : $auxMusico->getNombre();
+
     echo "<div class='grupo' data-id-grupo='" . $auxMusico->getNombre() . "'>
             <div class='nombreGrupo'>
-                <h3>" . $auxMusico->getNombre() . "</h3>
+                <h3>" . $aux . "</h3>
             </div>";
 
             echo "<div class='avatarComentarios'>

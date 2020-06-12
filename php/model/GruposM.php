@@ -40,9 +40,9 @@
     
             $link = abrirConexion();
     
-            $result = consultarBD("SELECT grupos.* FROM `integrantes`
-            INNER JOIN usuariosInstrumentos ON usuariosInstrumentos.idUsuarioInstrumento = integrantes.idUsuarioInstrumento
-            INNER JOIN usuarios ON usuarios.idUsuario = usuariosInstrumentos.idUsuario
+            $result = consultarBD("
+            SELECT grupos.* FROM `integrantes`
+            INNER JOIN usuarios ON usuarios.idUsuario = integrantes.idUsuarioInstrumento
             INNER JOIN grupos ON grupos.idGrupo = integrantes.idGrupo
             WHERE usuarios.nombre = '$usuario' ORDER BY grupos.idGrupo DESC", $link);
     

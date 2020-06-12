@@ -32,7 +32,7 @@
             include(dirname(__FILE__).'./../model/GruposM.php');
             $modeloGrupos = new GruposModel();
             
-            $crearGrupo = $modeloGrupos->crearGrupo(null, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, $avatarGrupo, $estaCompleto);
+            $crearGrupo = $modeloGrupos->crearGrupo(null, $nombreGrupo, $generoGrupo, $descripcion, $numeroIntegrantes, $cp, "img/default_group.png", $estaCompleto);
 
             return $crearGrupo;
         }

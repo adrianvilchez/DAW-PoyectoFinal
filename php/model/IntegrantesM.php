@@ -9,10 +9,6 @@
 
             $link = abrirConexion();
     
-            $idIntegrante = null;
-            $habilidad = null;
-            $experiencia = null;
-    
             $stmt = $link->prepare("INSERT INTO integrantes (idIntegrante, idUsuarioInstrumento, idGrupo, habilidad, experiencia, lider) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("iiiiii", $idIntegrante, $idUsuarioInstrumento, $idGrupo, $habilidad, $experiencia, $lider);
             $stmt->execute();
@@ -31,8 +27,7 @@
             $link = abrirConexion();
     
             $result = consultarBD("SELECT integrantes.* FROM `integrantes`
-            INNER JOIN usuariosInstrumentos ON usuariosInstrumentos.idUsuarioInstrumento = integrantes.idUsuarioInstrumento
-            INNER JOIN usuarios ON usuarios.idUsuario = usuariosInstrumentos.idUsuario
+            INNER JOIN usuarios ON usuarios.idUsuario = integrantes.idUsuarioInstrumento
             INNER JOIN grupos ON grupos.idGrupo = integrantes.idGrupo
             WHERE grupos.nombreGrupo = '$nombreGrupo';", $link);
     

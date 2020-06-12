@@ -42,7 +42,7 @@
                         <div class="menuDesplegable">
                             <div class="avatarPerfil">
                                 <img class="imagenPerfil" src="' . $obtenerUsuario->getAvatar() . '" alt="Avatar">
-                                <span class="tooltipPerfil">Perfil</span>
+                                <span class="tooltipPerfil">' . $_SESSION['usuario'] . '</span>
                             </div>
                             <div id="desplegable" class="contenidoDesplegable">
                                 <a href="./index.php?page=Profile">Perfil</a>

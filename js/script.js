@@ -587,7 +587,7 @@ function cargarImagen(event) {
 
             }).then(function (texto) {
 
-                //console.log(texto);
+                console.log(texto);
 
                 if (!document.body.contains(document.querySelector(".vistaGrupo"))) {
                     document.querySelector("main").appendChild(divVerGrupo);
