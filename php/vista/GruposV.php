@@ -6,23 +6,12 @@
 
 <div id="mainContainer">
 
-    <h1>Grupos</h1>
-
-    <hr />
+    <div class="cabeceraGrupos">
+        <h1>Grupos</h1>
+    </div>
 
     <!-- por cada uno de los grupos que obtengo del controlador obtenerGrupos muestro el grupo -->
     <?php
-        $grupo = "Archero";
-
-        // Comprobamos y creamos grupos
-        /*if ($controladorGrupo->comprobarGrupo($grupo)) {
-            echo "El grupo ya existe.";
-            
-        } else {
-            echo "El grupo no existe.";
-            echo "Creamos el grupo";
-            $controladorGrupo->crearGrupo(null, $grupo, 'Rock', 'sabdajsdgnahskjdmhasjodklashdjkashdsñjdashdjsk', 3, 46910, null, 1);
-        }*/
 
         $aux = $controladorGrupo->obtenerGrupos();
 
@@ -40,9 +29,7 @@
 
     <hr />
 
-    
     <?php
         include (dirname(__FILE__).'./componentes/filtradoGrupos.php');
     ?>
-
 </div>

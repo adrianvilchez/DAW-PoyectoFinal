@@ -22,13 +22,27 @@
         // Obtenemos todos los géneros para cargarlos en el HTML
         $generos = $controladorGenero->obtenerGeneros();
 
-        foreach ($generos as $genero) {
+        /*foreach ($generos as $genero) {
             
             echo '<div class="' . $genero->getGenero() . ' genero">
                 <img class="iconosGenero" src="' . $genero->getImagen() . '" alt="">
             </div>';
 
+        }*/
+
+        foreach ($generos as $genero) {
+            
+            echo '<div class="' . $genero->getGenero() . ' genero">
+                <input type="checkbox" name="' . $genero->getGenero() . '" id="' . $genero->getGenero() . '" value="' . $genero->getGenero() . '" />
+                <label for="' . $genero->getGenero() . '">
+                <img class="iconosGenero" src="' . $genero->getImagen() . '" alt="">
+            </div>';
+
+            
+
         }
+
+
 
     ?>
     </div>

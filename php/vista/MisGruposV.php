@@ -6,9 +6,9 @@
 
 <div id="mainContainer">
 
-    <h1>Mis Grupos</h1>
-
-    <hr />
+    <div class="cabeceraGrupos">
+        <h1>Grupos</h1>
+    </div>
 
     <?php
 

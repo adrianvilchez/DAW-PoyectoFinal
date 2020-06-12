@@ -1,6 +1,15 @@
 <?php
     class GruposController {
 
+        public function obtenerGruposFiltrados($busqueda, $integrantes, $rock, $indie, $dance, $techno, $pop, $heavy) {
+            include(dirname(__FILE__).'./../model/GruposM.php');
+            $modeloGrupos = new GruposModel();
+            
+            $grupos = $modeloGrupos->obtenerGruposFiltrados($busqueda, $integrantes, $rock, $indie, $dance, $techno, $pop, $heavy);
+
+            return $grupos;
+        }
+
         public function obtenerMisGrupos($usuario) {
             include(dirname(__FILE__).'./../model/GruposM.php');
             $modeloGrupos = new GruposModel();

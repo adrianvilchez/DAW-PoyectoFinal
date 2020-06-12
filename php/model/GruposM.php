@@ -4,6 +4,36 @@
 
     class GruposModel {
 
+        function obtenerGruposFiltrados($busqueda, $integrantes, $rock, $indie, $dance, $techno, $pop, $heavy) {
+
+            $grupos = array();
+    
+            $link = abrirConexion();
+
+            $result = consultarBD("SELECT * FROM grupos
+            WHERE generoGrupo LIKE '$rock'
+            OR generoGrupo LIKE '$indie'
+            OR generoGrupo LIKE '$pop'
+            OR generoGrupo LIKE '$techno'
+            OR generoGrupo LIKE '$heavy'
+            OR generoGrupo LIKE '$dance'
+            OR nombreGrupo LIKE '%$busqueda%'
+            OR generoGrupo LIKE '%$busqueda%'
+            OR numeroIntegrantes = $integrantes
+            ORDER BY grupos.idGrupo DESC", $link);
+    
+            while ($fila = extraerResultados($result)) {
+
+                $auxGruposFiltrados = new Grupo($fila[0], $fila[1], $fila[2], $fila[3], $fila[4], $fila[5], $fila[6], $fila[7]);
+
+                array_push($grupos, $auxGruposFiltrados);
+            }
+
+            cerrarConexion($link);
+
+            return $grupos;
+        }
+
         function obtenerMisGrupos($usuario) {
 
             $misGrupos = array();

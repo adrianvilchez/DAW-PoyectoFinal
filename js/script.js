@@ -572,35 +572,6 @@ function cargarImagen(event) {
 
         divVerGrupo.className = "vistaGrupo"
 
-        /*if (!document.body.contains(document.querySelector(".vistaGrupo"))) {
-            document.querySelector("main").appendChild(divVerGrupo);*/
-
-            //divVerGrupo.appendChild(cerrar);
-
-            /*let contenidoVista = 
-                "<div class='nombreVG'>" +
-                    "<h1>Grupo</h1>" +
-                    "<div class='cruceta'>" +
-                    "X" +
-                    "</div>" +
-                "</div>" +
-
-                "<div class='generoLocalidadVG'>" +
-                    "<p class='selectorVG'>Genero</p>" +
-                "</div>";*/
-
-            /*divVerGrupo.innerHTML += contenidoVista;
-
-            let cruceta = document.querySelector(".cruceta");
-
-            let vistaGrupo = document.querySelector(".vistaGrupo");
-
-            cruceta.addEventListener("click", function() {
-                vistaGrupo.remove();
-            }, false);*/
-
-
-
             let data = new FormData();
 
             console.log(nombreGrupo);
@@ -638,6 +609,7 @@ function cargarImagen(event) {
         //}
   }
 
+
 function init() {
     //document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
 
@@ -664,6 +636,178 @@ function init() {
 
         document.querySelectorAll(".verGrupo").forEach(grupo => {
             grupo.addEventListener("click", verGrupo);
+        });
+        
+        let data = new FormData()
+
+        let generos = document.querySelectorAll("input[type='checkbox']");
+
+        let buscar = document.querySelector("input[type='search']");
+
+        let integrantes = document.querySelector(".range-slider__range");
+
+        integrantes.addEventListener("change", function() {
+            console.log(this.value);
+            data.append("integrantes", this.value);
+
+        });
+
+        buscar.addEventListener("keyup", function() {
+            if (this.value != "" || this.value != undefined || this.value != null || this.value != "<empty string>" ) {
+                data.append("busqueda", this.value);
+                console.log(this.value); 
+            }
+            
+            fetch('http://localhost/DAW-ProyectoFinal/php/db/obtenerGruposFiltrados.php', {
+                method: 'POST',
+                body: data
+            }).then(function (respuesta) {
+                if (respuesta.ok) return respuesta.text();  
+    
+            }).then(function (texto) {
+    
+                let grupos = document.querySelector("#mainContainer");
+
+                grupos.remove = "";
+                grupos.innerHTML = texto;
+                //console.log(texto);
+
+                document.querySelectorAll(".verGrupo").forEach(grupo => {
+                    grupo.addEventListener("click", verGrupo);
+                });
+                
+            });
+        });
+
+        generos.forEach(genero => {
+            genero.addEventListener("click", function() {
+
+
+                if (this.checked && this.value == "Rock") {
+                    data.append("Rock", this.value);
+                } else if (!this.checked && this.value == "Rock") {
+                    data.delete("Rock");
+                }
+
+                if (this.checked && this.value == "Indie") {
+                    data.append("Indie", this.value);
+                } else if (!this.checked && this.value == "Indie") {
+                    data.delete("Indie");
+                }
+
+                if (this.checked && this.value == "Heavy Metal") {
+                    data.append("Heavy Metal", this.value);
+                } else if (!this.checked && this.value == "Heavy Metal") {
+                    data.delete("Heavy Metal");
+                }
+
+                if (this.checked && this.value == "Pop") {
+                    data.append("Pop", this.value);
+                } else if (!this.checked && this.value == "Pop") {
+                    data.delete("Pop");
+                }
+
+                if (this.checked && this.value == "Dance") {
+                    data.append("Dance", this.value);
+                } else if (!this.checked && this.value == "Dance") {
+                    data.delete("Dance");
+                }
+
+                if (this.checked && this.value == "Techno") {
+                    data.append("Techno", this.value);
+
+                } else if (!this.checked && this.value == "Techno") {
+                    data.delete("Techno");
+                }
+
+
+            })
+            
+ 
+        });
+        
+
+    }
+
+    if (URLactual.includes('?page=Musicos')) {
+        barSlider();
+
+
+        let data = new FormData()
+
+        let generos = document.querySelectorAll("input[type='checkbox']");
+
+        let buscar = document.querySelector("input[type='search']");
+
+        let integrantes = document.querySelector(".range-slider__range");
+
+        integrantes.addEventListener("change", function() {
+            console.log(this.value);
+            data.append("integrantes", this.value);
+        });
+
+        buscar.addEventListener("keyup", function() {
+            if (this.value != "" || this.value != undefined || this.value != null || this.value != "<empty string>" ) {
+                data.append("busqueda", this.value);
+                console.log(this.value); 
+            }
+            
+            
+        });
+
+        generos.forEach(genero => {
+            genero.addEventListener("change", function() {
+
+
+                if (this.checked && this.value == "Rock") {
+                    data.append("Rock", this.value);
+                } else if (!this.checked && this.value == "Rock") {
+                    data.delete("Rock");
+                }
+
+                if (this.checked && this.value == "Indie") {
+                    data.append("Indie", this.value);
+                } else if (!this.checked && this.value == "Indie") {
+                    data.delete("Indie");
+                }
+
+                if (this.checked && this.value == "Heavy Metal") {
+                    data.append("Heavy Metal", this.value);
+                } else if (!this.checked && this.value == "Heavy Metal") {
+                    data.delete("Heavy Metal");
+                }
+
+                if (this.checked && this.value == "Pop") {
+                    data.append("Pop", this.value);
+                } else if (!this.checked && this.value == "Pop") {
+                    data.delete("Pop");
+                }
+
+                if (this.checked && this.value == "Dance") {
+                    data.append("Dance", this.value);
+                } else if (!this.checked && this.value == "Dance") {
+                    data.delete("Dance");
+                }
+
+                if (this.checked && this.value == "Techno") {
+                    data.append("Techno", this.value);
+                } else if (!this.checked && this.value == "Techno") {
+                    data.delete("Techno");
+                }
+
+            })
+        });
+
+        fetch('http://localhost/DAW-ProyectoFinal/php/db/obtenerGruposFiltrados.php', {
+            method: 'POST',
+            body: data
+        }).then(function (respuesta) {
+            if (respuesta.ok) return respuesta.text();  
+
+        }).then(function (texto) {
+
+            console.log(texto);
+            
         });
         
     }
