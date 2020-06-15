@@ -10,11 +10,11 @@
             return $integrantes;
         }
 
-        public function actualizarPerfil($contrasenya, $cp, $email, $telefono, $usuario) {
+        public function actualizarPerfil($contrasenya, $descripcion, $cp, $email, $telefono, $usuario) {
             include_once (dirname(__FILE__).'./../model/UsuariosM.php');
             $modeloMusicos = new MusicosModel();
             
-            $actualizarPerfil = $modeloMusicos->actualizarPerfil($contrasenya, $cp, $email, $telefono, $usuario);
+            $actualizarPerfil = $modeloMusicos->actualizarPerfil($contrasenya, $descripcion, $cp, $email, $telefono, $usuario);
 
             return $actualizarPerfil;
         }

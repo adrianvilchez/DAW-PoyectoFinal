@@ -22,6 +22,11 @@
                 <input type="text" name="nombrePerfil" value="<?php echo $datosPerfil->getNombre()?>" id="" disabled>
             </div>
 
+            <div class="descripcionPerfil">
+                <p>Descripción:</p>
+                <textarea name="descripcionPerfil" id=""  disabled><?php echo $datosPerfil->getDescripcion()?></textarea>
+            </div>
+
             <div class="contrasenyaPerfil">
                 <?php echo "<p>contraseña:</p>" ?>
                 <input class="auxPass" type="password" name="mod" value="<?php echo $datosPerfil->getContrasenya()?>"  id="" disabled>

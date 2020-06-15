@@ -4,10 +4,11 @@
     $controladorUsuarios = new UsuariosController();
 
     $usuario = $_POST['usuario'];
+    $descripcion = $_POST['auxDescripcion'];
     $contrasenya = $_POST['auxPass'];
     $email = $_POST['auxEmail'];
     $telefono = $_POST['auxTel'];
     $cp = $_POST['auxCp'];
 
-    $perfil = $controladorUsuarios->actualizarPerfil($contrasenya, $cp, $email, $telefono, $usuario);
+    $perfil = $controladorUsuarios->actualizarPerfil($contrasenya, $descripcion, $cp, $email, $telefono, $usuario);
 ?>

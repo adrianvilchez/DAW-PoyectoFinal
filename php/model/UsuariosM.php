@@ -27,12 +27,12 @@
             return $integrantes;
         }
 
-        public function actualizarPerfil($contrasenya, $cp, $email, $telefono, $usuario) {
+        public function actualizarPerfil($contrasenya, $descripcion, $cp, $email, $telefono, $usuario) {
             $link = abrirConexion();
 
-            $stmt = $link->prepare("UPDATE usuarios SET contrasenya=?, cp=?, email=?, telefono=? WHERE nombre='$usuario'");
+            $stmt = $link->prepare("UPDATE usuarios SET contrasenya=?, descripcion=?, cp=?, email=?, telefono=? WHERE nombre='$usuario'");
 
-            $stmt->bind_param('sisi', $contrasenya, $cp, $email, $telefono);
+            $stmt->bind_param('ssisi', $contrasenya, $descripcion, $cp, $email, $telefono);
             $stmt->execute();
 
             if ($stmt->error) echo "FAILURE!!! " . $stmt->error;

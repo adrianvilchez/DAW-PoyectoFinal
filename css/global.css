@@ -1092,20 +1092,33 @@ input, select {
 
 }
 
-.datosPerfil input, .datosPerfil select {
+.datosPerfil input, .datosPerfil textarea, .datosPerfil select {
     height: 30px;
     margin-top: 13px;
     margin-left: 40px;
     margin-right: 40px;
 }
 
-.nombrePerfil, .cpPerfil, .emailPerfil, .telefonoPerfil, .instrumentosPerfil {
+.nombrePerfil, .descripcionPerfil, .cpPerfil, .emailPerfil, .telefonoPerfil, .instrumentosPerfil {
     display: grid;
 
     grid-template-columns: 1fr 8fr;
 
     text-align: center;
     margin-left: 50px;
+}
+
+.descripcionPerfil {
+    
+}
+
+.descripcionPerfil textarea {
+    overflow-y: scroll;
+    resize: none;
+    height: 50px;
+    text-align: left;
+
+    border-radius: 3px !important;
 }
 
 .contrasenyaPerfil {
@@ -1128,7 +1141,7 @@ input, select {
     width: 60px !important;
 }
 
-.nombrePerfil p, .contrasenyaPerfil p, .cpPerfil p, .emailPerfil p, .telefonoPerfil p, .instrumentosPerfil p {
+.nombrePerfil p, .descripcionPerfil p, .contrasenyaPerfil p, .cpPerfil p, .emailPerfil p, .telefonoPerfil p, .instrumentosPerfil p {
     border-radius: 3px !important;
     
     border: 1px solid #e1e4e8 !important;
