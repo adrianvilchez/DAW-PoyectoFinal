@@ -19,7 +19,7 @@
             OR generoGrupo LIKE '$dance'
             OR nombreGrupo LIKE '%$busqueda%'
             OR generoGrupo LIKE '%$busqueda%'
-            OR numeroIntegrantes = $integrantes
+            /*OR numeroIntegrantes = $integrantes*/
             ORDER BY grupos.idGrupo DESC", $link);
     
             while ($fila = extraerResultados($result)) {

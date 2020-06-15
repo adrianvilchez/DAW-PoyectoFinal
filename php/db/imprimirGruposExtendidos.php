@@ -75,7 +75,7 @@
                 <p class='textoGrupo'>" . ($grupo->getEstaCompleto() == 1 ? 'Completo' : 'Incompleto') . "</p>
             </div>
 
-            <div class='enviarPeticionVG'>
+            <div class='enviarPeticionVG' data-id-grupo='" . $grupo->getNombreGrupo() . "'>
                 <p class='selector " . ($grupo->getEstaCompleto() == 1 ? 'enviarPeticionDesVG' : 'enviarPeticionHabVG') . "'>Enviar Petición</p>
             </div>
         </div>

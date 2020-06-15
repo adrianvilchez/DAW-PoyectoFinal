@@ -369,6 +369,7 @@ function cargarImagen(event) {
   function cargarPerfil() {
 
     let nombre = document.querySelector("input[name='nombrePerfil']").value;
+    let descripcion = document.querySelector("textarea[name='descripcionPerfil']").value;
     let auxPass = document.querySelector(".auxPass").value;
     let auxEmail = document.querySelector(".auxEmail").value;
     let auxTel = document.querySelector(".auxTel").value;
@@ -377,12 +378,14 @@ function cargarImagen(event) {
     let data = new FormData();
 
     console.log(nombre);
+    console.log(descripcion);
     console.log(auxPass);
     console.log(auxEmail);
     console.log(auxTel);
     console.log(auxCp);
 
     data.append('usuario', nombre);
+    data.append('auxDescripcion', descripcion);
     data.append('auxPass', auxPass);
     data.append('auxEmail', auxEmail);
     data.append('auxTel', auxTel);
@@ -410,6 +413,8 @@ function cargarImagen(event) {
         input.disabled = true;
     });
 
+    document.querySelector("textarea[name='descripcionPerfil']").disabled = true;
+
     let boton = document.getElementById("botonModificarPerfil");
 
     boton.classList.remove("modificarPerfil");
@@ -434,6 +439,8 @@ function cargarImagen(event) {
     inputs.forEach(input => {
         input.disabled = false;
     });
+
+    document.querySelector("textarea[name='descripcionPerfil']").disabled = false;
 
     opcionesIntrumentos();
 
@@ -587,7 +594,7 @@ function cargarImagen(event) {
 
             }).then(function (texto) {
 
-                console.log(texto);
+                //console.log(texto);
 
                 if (!document.body.contains(document.querySelector(".vistaGrupo"))) {
                     document.querySelector("main").appendChild(divVerGrupo);
@@ -601,12 +608,92 @@ function cargarImagen(event) {
                     cruceta.addEventListener("click", function() {
                         vistaGrupo.remove();
                     }, false);
+
+                    
+
+                    if (document.body.contains(document.querySelector(".enviarPeticionHabVG"))) {
+                        let peticion = document.querySelector(".enviarPeticionHabVG");
+                        peticion.addEventListener("click" , enviarPeticion);
+                    }
+                    
                 }
                 
             });
 
 
         //}
+  }
+
+
+  function enviarPeticion() {
+
+    var nombreGrupoPeticion = event.target.parentNode.getAttribute("data-id-grupo");
+
+    var idUsuarioRecepcion;
+    var idUsuarioPeticion;
+    var idGrupo;
+
+    let datos = new FormData();
+    datos.append("nombre", nombreGrupoPeticion);
+
+    fetch('http://localhost/DAW-ProyectoFinal/php/db/obteneridGrupoPorNombre.php', {
+        method: 'POST',
+        body: datos
+    }).then(res => {
+        res.json().then(function(texto) {
+
+            idGrupo = texto[0].idGrupo;
+            idUsuarioPeticion = texto[0].idUsuario;
+            
+            console.log(texto[0].idGrupo);
+            console.log(texto[0].idUsuario);
+
+            let data = new FormData();
+
+            data.append("nombreGrupo", nombreGrupoPeticion);
+        
+            fetch('http://localhost/DAW-ProyectoFinal/php/db/obtenerIntegranteLider.php', {
+                method: 'POST',
+                body: data
+            }).then(res => {
+                res.json().then(function(texto) {
+
+                    console.log(texto[1].idUsuarioRecepcion);
+                    
+                    idUsuarioRecepcion = texto[1].idUsuarioRecepcion;
+
+                    let dataPeticion = new FormData();
+
+                    console.log("eesto");
+                    console.log(idUsuarioRecepcion);
+                    console.log(idUsuarioPeticion);
+                    console.log(idGrupo);
+                    
+                    
+                    
+
+                    dataPeticion.append("idUsuarioRecepcion", idUsuarioRecepcion);
+                    dataPeticion.append("idUsuarioPeticion", idUsuarioPeticion);
+                    dataPeticion.append('nombreGrupo', idGrupo);
+                    
+                    fetch('http://localhost/DAW-ProyectoFinal/php/db/generarPeticion.php', {
+                        method: 'POST',
+                        body: dataPeticion
+                    }).then(res => {
+                        res.json().then(function(texto) {
+                
+                            console.log(texto);
+                
+                        })
+                    })
+                })
+            })
+        })
+    })
+
+
+
+
   }
 
 
@@ -655,7 +742,7 @@ function init() {
         buscar.addEventListener("keyup", function() {
             if (this.value != "" || this.value != undefined || this.value != null || this.value != "<empty string>" ) {
                 data.append("busqueda", this.value);
-                console.log(this.value); 
+                console.log(this.value);
             }
             
             fetch('http://localhost/DAW-ProyectoFinal/php/db/obtenerGruposFiltrados.php', {
@@ -668,7 +755,7 @@ function init() {
     
                 let grupos = document.querySelector("#mainContainer");
 
-                grupos.remove = "";
+                grupos.innerHTML = "";
                 grupos.innerHTML = texto;
                 //console.log(texto);
 
@@ -815,7 +902,7 @@ function init() {
     if (URLactual.includes('?page=Profile')/* || URLactual.includes('?page=Musicos')*/) {
         let main = document.querySelector("main");
         main.style.display = "block";
-        main.style.height = "82vh";
+        main.style.height = "90vh";
 
         document.querySelector(".cargarImagen").style.display = "none";
 

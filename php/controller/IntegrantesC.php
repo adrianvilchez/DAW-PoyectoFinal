@@ -17,5 +17,14 @@
 
              return $integrantes;
         }
+
+        public function obtenerIntegranteLider($nombreGrupo) {
+            include(dirname(__FILE__).'./../model/IntegrantesM.php');
+            $modeloIntegrantes = new IntegrantesModel();
+            
+            $integrantes = $modeloIntegrantes->obtenerIntegranteLider($nombreGrupo);
+
+             return $integrantes;
+        }
     }
 ?>
