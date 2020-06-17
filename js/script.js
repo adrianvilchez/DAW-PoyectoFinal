@@ -197,17 +197,17 @@ function crearFormularioGrupo() {
         "<div class='nombreGrupoCrearGrupo'>" +
             "<h3 class='nombreGrupoCG'>Nombre</h3>" +
             "<input class='nombreGrupoInput' type='text'>" +
-            "<input class='botonCrearGrupo' type='button' value='Crear Grupo'>" +
+            "<input class='botonCrearGrupo validador' type='button' value='Crear Grupo'>" +
         "</div>" +
 
         "<div class='avatarComentarios'>" +
             "<div class='avatarCrearGrupo'>" +
                 "<img class='avatarCrearGrupoImagen' id='avatarCrearGrupoImagen' src='' alt=''>" +
-                "<input id='cargarImagen' class='cargarImagen' type='file'>" +
+                "<input id='cargarImagen' class='cargarImagen validador' type='file'>" +
             "</div>" +
 
             "<div class='descripcionGrupo'>" +
-                "<textarea class='descripcionCrearGrupo' name='descripcionCrearGrupo' id=''></textarea>" +
+                "<textarea class='descripcionCrearGrupo validador' name='descripcionCrearGrupo' id=''></textarea>" +
             "</div>" +
         "</div>" +
 
@@ -216,18 +216,18 @@ function crearFormularioGrupo() {
                 "<p class='selector'>Género </p>" +
                 
                 "<select class='generoGrupoCrearGrupo' name='selectGeneros' id='selectGeneros'>" +
-                    "<option class='generosCrearGrupo' value='Generos' selected>Géneros</option>" +
+                    "<option class='generosCrearGrupo validador' value='Generos' selected>Géneros</option>" +
                 "</select>" +
             "</div>" +
 
             "<div class='numeroIntegrantes'>" +
                 "<p class='selector'>Integrantes </p>" +
-                "<input class='numeroIntegrantesCrearGrupo' type='text' name='localidadCrearGrupo' id=''>" +
+                "<input class='numeroIntegrantesCrearGrupo validador' type='text' name='localidadCrearGrupo' id='' required>" +
             "</div>" +
 
             "<div class='cpGrupo'>" +
                 "<p class='selector'>Localidad </p>" +
-                "<input class='cpCrearGrupo' type='text' name='localidadCrearGrupo' id=''>" +
+                "<input class='cpCrearGrupo validador' type='text' name='localidadCrearGrupo' id='' required>" +
             "</div>" +
             
             "<div class='grupoCompleto'>" +
@@ -270,40 +270,89 @@ function crearFormularioGrupo() {
 
     inputFile.addEventListener('change', cargarImagen, false);
 
+    // Obtenemos todos los campos a comprobar, el campo que requiera una acción se mostrará en rojo
+    let camposAValidad = document.querySelectorAll(".validador");
+
+    camposAValidad.forEach(campo => {
+        campo.addEventListener("blur", function () {
+            let imagen = document.querySelector(".cargarImagen");
+            let descripcion = document.querySelector(".descripcionCrearGrupo");
+            let genero = document.querySelector(".generoGrupoCrearGrupo");
+            let integrantes = document.querySelector(".numeroIntegrantesCrearGrupo");
+            let cp = document.querySelector(".cpCrearGrupo");
+            let nombre = document.querySelector(".nombreGrupoInput");
+    
+            if (genero.value !=! "Géneros") {
+                let bla = document.querySelector(".generoGrupoCrearGrupo");
+                bla.classList.add("requerido");
+            } else {
+                bla.classList.remove("requerido");
+            }
+            
+            if (nombre.value == "" || nombre.value == "undefnined") {
+                nombre.classList.add("requerido");
+            } else {
+                nombre.classList.remove("requerido");
+            }
+    
+            if (descripcion.value == "" || descripcion.value == "undefnined") {
+                descripcion.classList.add("requerido");
+            } else {
+                descripcion.classList.remove("requerido");
+            }
+            
+            if (cp.value == "" || cp.value == "undefnined") {
+                cp.classList.add("requerido");
+            } else {
+                cp.classList.remove("requerido");
+            }
+    
+            if (imagen.value == "" || imagen.value == "undefnined") {
+                imagen.classList.add("requerido");
+            } else {
+                imagen.classList.remove("requerido");
+            }
+            
+            if (integrantes.value == "" || integrantes.value == "undefnined") {
+                integrantes.classList.add("requerido");
+            } else {
+                integrantes.classList.remove("requerido");
+            }
+        });
+    });
+
     document.querySelector(".botonCrearGrupo").addEventListener("click", crearGrupo);
 }
 
 function crearGrupo() {
     // obtenemos los valores de los elementos
-    let imagen = document.querySelector(".cargarImagen").value;
-    let descripcion = document.querySelector(".descripcionCrearGrupo").value;
-    let genero = document.querySelector(".generoGrupoCrearGrupo").value;
-    let integrantes = document.querySelector(".numeroIntegrantesCrearGrupo").value;
-    let cp = document.querySelector(".cpCrearGrupo").value;
+    let imagen = document.querySelector(".cargarImagen");
+    let descripcion = document.querySelector(".descripcionCrearGrupo");
+    let genero = document.querySelector(".generoGrupoCrearGrupo");
+    let integrantes = document.querySelector(".numeroIntegrantesCrearGrupo");
+    let cp = document.querySelector(".cpCrearGrupo");
 
     let estado;
 
     if (document.querySelector(".estadoCrearGrupo").value == "completo") estado = 1
     else estado = 0;
 
-    let nombre = document.querySelector(".nombreGrupoInput").value;
+    let nombre = document.querySelector(".nombreGrupoInput");
 
-    console.log(imagen + " " + descripcion + " " + genero + " " + integrantes + cp + " " + estado + " " + nombre);
+    console.log(imagen.value + " " + descripcion.value + " " + genero.value + " " + integrantes.value + cp.value + " " + estado.value + " " + nombre.value);
     
     let data = new FormData();
 
-    data.append('imagen', "img/" + imagen);
-    data.append('nombre', nombre);
-    data.append('descripcion', descripcion);
-    data.append('genero', genero);
-    data.append('integrantes', integrantes);
-    data.append('cp', cp);
-    data.append('estado', estado);
+    data.append('imagen', "img/" + imagen.value);
+    data.append('nombre', nombre.value);
+    data.append('descripcion', descripcion.value);
+    data.append('genero', genero.value);
+    data.append('integrantes', integrantes.value);
+    data.append('cp', cp.value);
+    data.append('estado', estado.value);
 
     // Comprobamos que todos los campos tengan contenido
-    if (genero.value != "Géneros" && nombre != "" && imagen != "" && descripcion != "" && integrantes != "" && cp != "") {
-        
-    
+    if (genero.value != "Géneros" && nombre.value != "" && imagen.value != "" && descripcion.value != "" && integrantes.value != "" && cp.value != "") {
         // Creamos el grupo
         fetch('http://localhost/DAW-ProyectoFinal/php/db/crearGrupo.php', {
             method: 'POST',
@@ -353,21 +402,6 @@ function crearGrupo() {
             })
             
         });
-    } else {
-        let datosGrupo = document.querySelector(".datosGrupo");
-
-        if (genero.value !=! "Géneros") {
-            let bla = document.querySelector(".generoGrupoCrearGrupo");
-            bla.classList.add("error");
-        } else if (condition) {
-            
-        }
-
-
-
-        //console.log("Debes seleccionar un género.");
-        
-        //datosGrupo.innerHTML += "<p class='error'>Debes seleccionar un género.</p>";
     }
 }
 

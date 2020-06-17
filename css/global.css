@@ -1031,6 +1031,10 @@ input, select {
     color: red;
 }
 
+.requerido {
+    border: 1px solid red;
+}
+
 .numeroIntegrantes {
     
 }
