@@ -274,6 +274,7 @@ function crearFormularioGrupo() {
 }
 
 function crearGrupo() {
+    // obtenemos los valores de los elementos
     let imagen = document.querySelector(".cargarImagen").value;
     let descripcion = document.querySelector(".descripcionCrearGrupo").value;
     let genero = document.querySelector(".generoGrupoCrearGrupo").value;
@@ -299,57 +300,75 @@ function crearGrupo() {
     data.append('cp', cp);
     data.append('estado', estado);
 
-    // Creamos el grupo
-    fetch('http://localhost/DAW-ProyectoFinal/php/db/crearGrupo.php', {
-        method: 'POST',
-        body: data
-    }).then(function (respuesta) {
-
-        if (respuesta.ok) return respuesta.text();
-
-    }).then(function (texto) {
-
-        data.append('nombre', nombre);
+    // Comprobamos que todos los campos tengan contenido
+    if (genero.value != "Géneros" && nombre != "" && imagen != "" && descripcion != "" && integrantes != "" && cp != "") {
         
-        // Obtenemos el id tanto del grupo que se va a crear como del usuario que lo está creando
-        fetch('http://localhost/DAW-ProyectoFinal/php/db/obteneridGrupoPorNombre.php', {
+    
+        // Creamos el grupo
+        fetch('http://localhost/DAW-ProyectoFinal/php/db/crearGrupo.php', {
             method: 'POST',
             body: data
-        }).then(res => {
-			res.json().then(function(texto) {
+        }).then(function (respuesta) {
 
-                console.log(texto);
+            if (respuesta.ok) return respuesta.text();
 
-                idGrupo = texto[0].idGrupo;
-                idUsuario = texto[0].idUsuario;
-                
-                //location.href = 'http://localhost/DAW-ProyectoFinal/index.php?page=MyGroups';
-                // Tenemos que agregar el usuario que crea el grupo al mismo
-    
-                let datos = new FormData();
-    
-                datos.append('idUsuario', idUsuario);
-                datos.append('idGrupo', idGrupo);
-                datos.append('lider', 1);
+        }).then(function (texto) {
 
-                // Insertamos al usuario en el grupo que ha creado, como lider
-                fetch('http://localhost/DAW-ProyectoFinal/php/db/insertarUsuarioGrupo.php', {
-                    method: 'POST',
-                    body: datos
-                }).then(function (respuesta) {
-                    if (respuesta.ok) return respuesta.text();  
-    
-                }).then(function (texto) {
-    
+            data.append('nombre', nombre);
+            
+            // Obtenemos el id tanto del grupo que se va a crear como del usuario que lo está creando
+            fetch('http://localhost/DAW-ProyectoFinal/php/db/obteneridGrupoPorNombre.php', {
+                method: 'POST',
+                body: data
+            }).then(res => {
+                res.json().then(function(texto) {
+
                     console.log(texto);
-                    
-                    // Recargamos la página para mostrar el grupo junto a todos los que son del usuario
-                    location.href = 'http://localhost/DAW-ProyectoFinal/index.php?page=MyGroups';
+
+                    idGrupo = texto[0].idGrupo;
+                    idUsuario = texto[0].idUsuario;
+                
+        
+                    let datos = new FormData();
+        
+                    datos.append('idUsuario', idUsuario);
+                    datos.append('idGrupo', idGrupo);
+                    datos.append('lider', 1);
+
+                    // Insertamos al usuario en el grupo que ha creado, como lider
+                    fetch('http://localhost/DAW-ProyectoFinal/php/db/insertarUsuarioGrupo.php', {
+                        method: 'POST',
+                        body: datos
+                    }).then(function (respuesta) {
+                        if (respuesta.ok) return respuesta.text();  
+        
+                    }).then(function (texto) {
+        
+                        console.log(texto);
+                        
+                        // Recargamos la página para mostrar el grupo junto a todos los que son del usuario
+                        location.href = 'http://localhost/DAW-ProyectoFinal/index.php?page=MyGroups';
+                    })
                 })
             })
-        })
+            
+        });
+    } else {
+        let datosGrupo = document.querySelector(".datosGrupo");
+
+        if (genero.value !=! "Géneros") {
+            let bla = document.querySelector(".generoGrupoCrearGrupo");
+            bla.classList.add("error");
+        } else if (condition) {
+            
+        }
+
+
+
+        //console.log("Debes seleccionar un género.");
         
-    });
+        //datosGrupo.innerHTML += "<p class='error'>Debes seleccionar un género.</p>";
+    }
 }
 
 function cargarImagen(event) {

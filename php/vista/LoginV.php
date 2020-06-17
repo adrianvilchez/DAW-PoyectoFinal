@@ -27,12 +27,6 @@
             <h1>Entra en YourBand</h1>
 
             <form action="" method="POST">
-                <?php
-                    if(isset($errorLogin)) {
-                        echo $errorLogin;
-                    }
-                ?>
-
                 <div class="contenedorInput">
                     <i class="fas fa-user"></i>
                     <input placeholder="Usuario" type="text" name="usuario" class='input_field'>
@@ -52,6 +46,12 @@
                     <input type="submit" value="Crear Cuenta" name="registro" id='inputRegistro' class='input_field'>
                 </span>
             </form>
+
+            <?php
+                if(isset($errorLogin)) {
+                    echo "<p class='error'>" . $errorLogin . "</p>";
+                }
+            ?>
         </div>
     </div>
 </body>

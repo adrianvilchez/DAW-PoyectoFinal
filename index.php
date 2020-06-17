@@ -15,7 +15,10 @@
         $nombreUsuario = $_POST['usuario'];
         $contrasenyaUsuario = $_POST['password'];
 
-        if ($controladorUsuarios->comprobarUsuarioLogin($nombreUsuario, $contrasenyaUsuario)) {
+        setcookie("usuario", $nombreUsuario, time() + (86400 * 30), "/");
+        setcookie("contraseña", $contrasenyaUsuario, time() + (86400 * 30), "/");
+
+        if ($controladorUsuarios->comprobarUsuarioLogin($nombreUsuario)) {
             //echo "Existe el usuario";
             $sesionUsuario->establecerUsuarioActual($nombreUsuario);
             $controladorUsuarios->establecerUsuario($nombreUsuario);
@@ -36,25 +39,20 @@
             $contrasenya = $_POST['passwordR'];
             $email = $_POST['emailR'];
     
-            if (!$controladorUsuarios->comprobarUsuarioLogin($nombre, $contrasenya)) {
+            if (!$controladorUsuarios->comprobarUsuarioLogin($nombre)) {
         
                 $controladorUsuarios->crearUsuario(null, $nombre, $contrasenya, $email);
 
-                $errorLogOn = "Usuario creado";
-
-                echo "creado";
     
                 include_once (dirname(__FILE__).'./php/vista/LoginV.php');
             } else {
                 $errorLogOn = "El usuario ya existe";
 
-                echo "no creado";
                 include_once (dirname(__FILE__).'./php/vista/RegistroV.php');
             }
         }
     } else {
         // Cargamos el login
-        echo "login";
 
         include_once (dirname(__FILE__).'./php/vista/LoginV.php');
         //include_once (dirname(__FILE__).'./php/vista/PrincipalV.php');

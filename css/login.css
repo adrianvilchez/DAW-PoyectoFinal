@@ -144,6 +144,7 @@ h1, span {
     font-weight: bold;
     color: white;
     text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 #inputEnviar:hover {
@@ -173,6 +174,10 @@ a:hover {
 
 i {
     color: var(--icon_color);
+}
+
+.error {
+    color: red;
 }
 
 /* make it responsive */

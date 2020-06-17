@@ -47,11 +47,11 @@
         }
 
         // [LOGIN]
-        public function comprobarUsuarioLogin($nombre, $contrasenya) {
+        public function comprobarUsuarioLogin($nombre) {
             include_once (dirname(__FILE__).'./../model/UsuariosM.php');
             $modeloMusicos = new MusicosModel();
             
-            $comprobarMusico = $modeloMusicos->comprobarUsuarioLogin($nombre, $contrasenya);
+            $comprobarMusico = $modeloMusicos->comprobarUsuarioLogin($nombre);
 
             return $comprobarMusico;
         }

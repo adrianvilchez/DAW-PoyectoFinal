@@ -68,7 +68,7 @@
 
         <div class="avatarPerfilUsuario">
             <img  src='<?php echo $datosPerfil->getAvatar()?>' alt=''>
-            <input name="mod" class='cargarImagen' type='file'>
+            <input name="mod" class='cargarImagen' type='file' accept='image/*'>
         </div>
     </div>
 

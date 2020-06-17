@@ -98,12 +98,12 @@
         }
 
         // [LOGIN]: Métodos para comprobar si el usuario existe
-        public function comprobarUsuarioLogin($usuario, $contrasenya) {
+        public function comprobarUsuarioLogin($usuario) {
 
             $link = abrirConexion();
 
-            $stmt = $link->prepare("SELECT * FROM usuarios WHERE nombre = ? AND contrasenya = ?");
-            $stmt->bind_param("ss", $usuario, $contrasenya);
+            $stmt = $link->prepare("SELECT * FROM usuarios WHERE nombre = ?");
+            $stmt->bind_param("s", $usuario);
             $stmt->execute();
 
             $result = $stmt->get_result();

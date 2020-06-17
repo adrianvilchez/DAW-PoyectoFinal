@@ -23,12 +23,6 @@
             <div id="contenedorDerecho">
                 <form action="" method="post">
 
-                    <?php
-                        if(isset($errorLogOn)) {
-                            echo $errorLogOn;
-                        }
-                    ?>
-
                     <h1>¡Regístrate en YourBand!</h1>
 
                     <div class="contenedorInput">
@@ -48,6 +42,12 @@
 
                     <input type="submit" value="Crear cuenta" name="crearCuenta" id='inputEnviar' class='input_field'>
                 </form>
+
+                <?php
+                    if(isset($errorLogOn)) {
+                        echo "<p class='error'>" . $errorLogOn . "</p>";
+                    }
+                ?>
             </div>
         </div>
     </body>
