@@ -1273,19 +1273,42 @@ footer {
 
 
 .peticiones {
-    display: grid;
-    grid-template-columns: 10fr 10fr;
+
 }
 
 .peticion {
-    width: 97%;
+    width: 98%;
     margin: 0 auto;
     border-left: 1px solid #24292E;
     border-right: 1px solid #24292E;
-    
+    margin-top: 10px;
 
 }
 
+.usuarioPeticion {
+    display: flex;
+    background-color: #24292E;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.usuarioPeticion p {
+    color: white;
+}
+
+.botonesPeticion {
+    display: flex;
+    background-color: #24292E;
+    height: 40px;
+}
+
+.botonPeticion {
+    margin: 0 auto;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+}
 
 .crearNuevoGrupo {
     margin-top: 20px;

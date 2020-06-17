@@ -991,6 +991,7 @@ function init() {
     if (URLactual.includes('?page=Requests')/* || URLactual.includes('?page=Musicos')*/) {
         let main = document.querySelector("main");
         main.style.display = "block";
+        main.style.height = "72vh";
     }
 }
 
