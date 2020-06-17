@@ -1,5 +1,5 @@
 <?php
-    include(dirname(__FILE__).'./../controller/PeticionesC.php');
+    include_once (dirname(__FILE__).'./../controller/PeticionesC.php');
 
     $controladorPeticiones = new PeticionesController();
 
@@ -13,6 +13,6 @@
 
     $json_string = json_encode($peticion);
 
-    echo $json_string;
+    echo $peticion;
     
 ?>

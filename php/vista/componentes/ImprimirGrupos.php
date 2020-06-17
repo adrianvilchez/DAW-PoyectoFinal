@@ -1,4 +1,4 @@
-<?php 
+<?php
     echo "<div class='grupo' data-id-grupo='" . $auxGrupo->getNombreGrupo() . "'>
             <div class='nombreGrupo'>
                 <h3>" . $auxGrupo->getNombreGrupo() . "</h3>
@@ -15,7 +15,7 @@
                     </div>";
             } else {
                 echo "<div class='descripcionGrupo'>
-                        <p>" . $auxGrupo->getDescripcion() . ".</p>
+                        <p>" . $auxGrupo->getDescripcion() . "</p>
                     </div>";
             } 
                 

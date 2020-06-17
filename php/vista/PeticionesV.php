@@ -1,32 +1,46 @@
 <?php
+    include_once (dirname(__FILE__).'./../controller/PeticionesC.php');
 
-    include (dirname(__FILE__).'./../controller/PeticionesC.php');
-    //include (dirname(__FILE__).'./../controller/UsuariosC.php');
-
-    $peticionesController = new PeticionesController();
+    $a = new PeticionesController();
     $usuarioController = new UsuariosController();
 
     $usuario = $_SESSION['usuario'];
 
     $auxUsuario = $usuarioController->obtenerMusico($usuario);
 
-    //$peticiones = $peticionesController->obtenerRecepciones($auxUsuario->getNombre());
-    $peticiones = $peticionesController->obtenerPeticiones($auxUsuario->getIdUsuario());
+    $peticiones = $a->obtenerPeticiones($auxUsuario->getIdUsuario());
 ?>
 
 <div id="mainContainer">
 
     <div class="tituloPerfil">
-        <h1>Perfil de usuario</h1>
+        <h1>Peticiones</h1>
     </div>
 
-    <?php
+    <div class="peticiones">
 
-    var_dump($peticiones);
+        <div class="enviadas">
+            <div class="cabeceraPeticiones">
+                <h1>Peticiones enviadas</h1>
+            </div>
+        
+        </div>
 
-        /*foreach ($peticiones as $peticion) {
-            echo "bla " . $peticion->getIdUsuarioRecepcion();
-        }*/
-    ?>
+
+        <div class="recibidas">
+            <div class="cabeceraPeticiones">
+                <h1>peticiones recibidas</h1>
+            </div>
+            <?php
+                foreach ($peticiones as $peticion) {
+                    include (dirname(__FILE__).'./componentes/imprimirPeticiones.php');
+                }
+            ?>
+        </div>
+    </div>
+
+
+
+
 
 </div>

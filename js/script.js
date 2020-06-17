@@ -697,9 +697,6 @@ function cargarImagen(event) {
 
             idGrupo = texto[0].idGrupo;
             idUsuarioPeticion = texto[0].idUsuario;
-            
-            console.log(texto[0].idGrupo);
-            console.log(texto[0].idUsuario);
 
             let data = new FormData();
 
@@ -710,20 +707,14 @@ function cargarImagen(event) {
                 body: data
             }).then(res => {
                 res.json().then(function(texto) {
-
-                    console.log(texto[1].idUsuarioRecepcion);
                     
                     idUsuarioRecepcion = texto[1].idUsuarioRecepcion;
 
                     let dataPeticion = new FormData();
 
-                    console.log("eesto");
-                    console.log(idUsuarioRecepcion);
                     console.log(idUsuarioPeticion);
+                    console.log(idUsuarioRecepcion);
                     console.log(idGrupo);
-                    
-                    
-                    
 
                     dataPeticion.append("idUsuarioRecepcion", idUsuarioRecepcion);
                     dataPeticion.append("idUsuarioPeticion", idUsuarioPeticion);
@@ -751,6 +742,30 @@ function cargarImagen(event) {
 
 
 function init() {
+
+    fetch('http://localhost/DAW-ProyectoFinal/php/db/obtenerNotificaciones.php', {
+        method: 'POST',
+    }).then(res => {
+        res.json().then(function(texto) {
+
+            let notificaciones = document.querySelector(".numeroNotificaciones");
+
+
+            if (texto != 0) {
+                notificaciones.classList.add("tieneNotificaciones");
+                notificaciones.innerHTML = "<p>" + texto + "</p>";
+            } else {
+                notificaciones.classList.remove("tieneNotificaciones");
+            }
+
+            document.querySelector(".notificaciones").addEventListener("click", function () {
+                location.href = 'http://localhost/DAW-ProyectoFinal/index.php?page=Requests';
+            })
+
+        })
+    })
+
+
     //document.querySelector("input[name='generar']").addEventListener("click", llamarAjax);
 
     document.querySelector(".avatarPerfil").addEventListener("click", desplegable);
@@ -966,6 +981,16 @@ function init() {
         let mostrarContrasenya = document.querySelector("#verConstrasenya");
 
         mostrarContrasenya.addEventListener("click", verContrasenya);
+    }
+
+    if (URLactual.includes('?page=News')/* || URLactual.includes('?page=Musicos')*/) {
+        let main = document.querySelector("main");
+        main.style.display = "block";
+    }
+
+    if (URLactual.includes('?page=Requests')/* || URLactual.includes('?page=Musicos')*/) {
+        let main = document.querySelector("main");
+        main.style.display = "block";
     }
 }
 

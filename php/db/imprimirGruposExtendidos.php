@@ -50,10 +50,15 @@
                 $integrantes = $controladorUsuario->obtenerIntegrantes($nombreGrupo);
                 //$integrantes2 = $controladorIntegrante->obtenerIntegrantes($nombreGrupo);
 
+                session_start();
+
                 foreach ($integrantes as $integrante) {
+
+                    $aux = ($integrante->getNombre() == $_SESSION['usuario']) ? "Tú" : $integrante->getNombre();
+
                     echo "<div class='datosIntegranteVG'>
                     <tr>
-                        <td class='nombreIntegranteVG'>" . $integrante->getNombre() . "</td>
+                        <td class='nombreIntegranteVG'>" . $aux . "</td>
                         <td class='nombreIntegranteVG'>" . $integrante->getCp() . "</td>
                         <td class='nombreIntegranteVG'>" . $integrante->getEmail() . "</td>
                         <td class='nombreIntegranteVG'>" . $integrante->getTelefono() . "</td>

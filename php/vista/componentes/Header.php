@@ -1,9 +1,13 @@
 <?php
+    //include_once (dirname(__FILE__).'./../../controller/PeticionesC.php');
     $controladorUsuario = new UsuariosController();
+    //$controladorPeticiones = new PeticionesController();
 
     $usuario = $_SESSION['usuario'];
     
     $obtenerUsuario = $controladorUsuario->obtenerMusico($usuario);
+
+    //$numeroPeticiones = $controladorPeticiones->obtenerNumeroPeticiones($obtenerUsuario->getIdUsuario());
 ?>
 
 <body>
@@ -33,7 +37,8 @@
                     } else {
                         echo '
                         <div class="notificaciones">
-                            <div class="numeroNotificaciones"></div>
+                            <div class="numeroNotificaciones">
+                            </div>
 
                             <img src="./img/notificaciones.png" alt="Notificaciones">
                             <span class="tooltipNotificaciones">Notificaciones</span>

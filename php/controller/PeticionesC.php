@@ -4,7 +4,7 @@
             include(dirname(__FILE__).'./../model/PeticionesM.php');
             $modeloPeticiones = new PeticionesModel();
             
-            $peticion = $modeloPeticiones->generarPeticion(null, $idUsuarioRecepcion, $idUsuarioPeticion, $idGrupo, $estado);
+            $peticion = $modeloPeticiones->generarPeticion($idPeticion, $idUsuarioRecepcion, $idUsuarioPeticion, $idGrupo, $estado);
 
             return $peticion;
         }
@@ -22,9 +22,18 @@
             include(dirname(__FILE__).'./../model/PeticionesM.php');
             $modeloPeticiones = new PeticionesModel();
             
-            $peticion = $modeloPeticiones->obtenerRecepciones($idUsuario);
+            $recepcion = $modeloPeticiones->obtenerRecepciones($idUsuario);
 
-            return $peticion;
+            return $recepcion;
+        }
+
+        public function obtenerNumeroPeticiones($idUsuario) {
+            include(dirname(__FILE__).'./../model/PeticionesM.php');
+            $modeloPeticiones = new PeticionesModel();
+            
+            $recepcion = $modeloPeticiones->obtenerNumeroPeticiones($idUsuario);
+
+            return $recepcion;
         }
     }
 ?>
