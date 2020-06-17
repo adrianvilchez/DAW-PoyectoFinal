@@ -339,7 +339,7 @@ main p, main h1, main h2, main h3 {
     text-align: center;
 }
 
-.cabeceraGrupos {
+.cabeceraGrupos, .cabeceraMusicos, .cabeceraNoticias {
     display: flex;
     background: #24292E;
     height: 70px;
@@ -350,7 +350,7 @@ main p, main h1, main h2, main h3 {
     background: linear-gradient(#24292E 20%, var(--input_bg) 200%);
 }
 
-.cabeceraGrupos h1 {
+.cabeceraGrupos h1, .cabeceraMusicos h1, .cabeceraNoticias h1 {
     color: var(--input_bg);
     text-align: center;
     align-self:center;

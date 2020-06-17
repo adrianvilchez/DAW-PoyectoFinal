@@ -3,15 +3,10 @@
         
     </section>
 
-    <h1>Últimas peticiones</h1>
+    <div class="cabeceraMusicos">
+        <h1>Noticias</h1>
+    </div>
 
-    <?php 
-        $controladorUsuarios->crearUsuario(null, 'abaa', 'asdbla@gmail.com', 'blsbla');
-    ?>
-
-    <hr />
-
-    <input name="generar" type="button" value="Actualiza">
 
     <div class="posts">
     </div>

@@ -5,9 +5,9 @@
 
 <div id="mainContainer">
 
-    <h1>Músicos en activo</h1>
-
-    <hr />
+    <div class="cabeceraMusicos">
+        <h1>Músicos</h1>
+    </div>
 
     <!-- Muestro todos los músicos y sus instrumentos aquí -->
 
