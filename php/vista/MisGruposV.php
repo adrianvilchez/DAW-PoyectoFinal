@@ -18,6 +18,7 @@
         if (count($misGrupos) <= 0) {
             echo "<h1>Aún no estás en ningún grupo.</h1>";
         } else {
+            echo '<input class="crearNuevoGrupo" type="button" name="crearGrupo" value="Nuevo Grupo">';
             echo "<div class='grupos'>";
             foreach ($misGrupos as $auxGrupo) {
                 include (dirname(__FILE__).'./componentes/ImprimirGrupos.php');
@@ -34,10 +35,8 @@
     <h1>Filtrado</h1>
 
     <hr />
-
+    
     <?php
         include (dirname(__FILE__).'./componentes/filtradoGrupos.php');
     ?>
-
-    <input type="button" name="crearGrupo" value="Nuevo Grupo">
 </div>

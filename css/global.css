@@ -1277,3 +1277,21 @@ footer {
     grid-template-columns: 10fr 10fr;
 }
 
+.peticion {
+    width: 97%;
+    margin: 0 auto;
+    border-left: 1px solid #24292E;
+    border-right: 1px solid #24292E;
+    
+
+}
+
+
+.crearNuevoGrupo {
+    margin-top: 20px;
+    width: 200px;
+    height: 35px;
+    background-color: #24292E;
+    color: white;
+    border-radius: 6px;
+}
