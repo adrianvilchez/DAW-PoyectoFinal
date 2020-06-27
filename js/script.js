@@ -363,7 +363,7 @@ function crearGrupo() {
 
         }).then(function (texto) {
 
-            data.append('nombre', nombre);
+            data.append('nombre', nombre.value);
             
             // Obtenemos el id tanto del grupo que se va a crear como del usuario que lo está creando
             fetch('http://localhost/DAW-ProyectoFinal/php/db/obteneridGrupoPorNombre.php', {
